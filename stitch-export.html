@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a4d3c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#11211d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>GolfStats - Twój golf, Twoje statystyki</title>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 backdrop-blur-md dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">golf_course</span>
+</div>
+<h1 class="text-xl font-extrabold tracking-tight text-primary dark:text-white">GolfStats</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">O aplikacji</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Dla kogo</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Trenerzy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Cennik</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:block px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-all">Zaloguj się</button>
+<button class="bg-primary text-white px-5 py-2 text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all">Zarejestruj się</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-20 lg:py-32">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+<div class="max-w-2xl">
+<span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary mb-6">Premium Golf Experience</span>
+<h1 class="text-5xl font-black leading-[1.1] text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+                            Twój golf.<br/>Twoje statystyki.<br/><span class="text-primary">Twój trener.</span>
+</h1>
+<p class="mt-8 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                            Śledź postępy, analizuj każdą grę i współpracuj z najlepszymi trenerami w jednej, intuicyjnej aplikacji stworzonej dla pasjonatów golfa.
+                        </p>
+<div class="mt-10 flex flex-wrap gap-4">
+<button class="bg-primary text-white px-8 py-4 text-base font-bold rounded-xl hover:scale-105 transition-transform flex items-center gap-2 shadow-xl shadow-primary/20">
+<span class="material-symbols-outlined">person</span> Jestem golfistą
+                            </button>
+<button class="bg-white border-2 border-primary/20 text-primary px-8 py-4 text-base font-bold rounded-xl hover:bg-primary/5 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">school</span> Jestem trenerem
+                            </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square w-full rounded-[2rem] bg-gradient-to-br from-primary to-primary/60 p-1 shadow-2xl overflow-hidden">
+<div class="h-full w-full rounded-[1.9rem] bg-cover bg-center" data-alt="Professional golfer taking a swing on a sunny day" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoGRgw6jr8gVWraRRxq2PrRat4u1ax8xvwoXieUcHJoIcVw0QnN5JZmcPMfEGyokiB6cgCSyrz5uqjm_GusFMWBiUeRkEzn9eaN4p6hjOYS1KYGj2q9QWVe1KybZC67K5ORewxRIgHDbVkMgIlAQMPPDP-i93lfsRIQlMPwWLI58oJilrQxCnZYtZ4Zfm2SxTteOQAE-IPBh0zpoEW1lHwpYauYtm5Q0I-drMjYjhJEIO5YWKxBZdAA2jDvQCIgdWvfN0tfSIT_RsY')"></div>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-primary/10 max-w-[240px]">
+<div class="flex items-center gap-3 mb-2">
+<div class="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white text-sm">Postęp handicapu</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full w-[70%] bg-primary"></div>
+</div>
+<p class="text-xs text-slate-500 mt-2 font-medium">-2.4 w ostatnim miesiącu</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="bg-white dark:bg-slate-900/50 py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">Wszystko, czego potrzebujesz na polu</h2>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Przenieś swoją grę na wyższy poziom dzięki zaawansowanym narzędziom analitycznym dostępnym pod ręką.</p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">bar_chart</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Śledzenie statystyk</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Dokładne dane z każdej rundy, w tym FIR, GIR oraz liczba puttów na dołek.</p>
+</div>
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Zapis głosowy</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Wygodne notatki podczas gry. Skup się na uderzeniu, my zajmiemy się resztą.</p>
+</div>
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Współpraca</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Bezpośredni kontakt z trenerem, wymiana wideo i profesjonalny feedback.</p>
+</div>
+<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800 border border-transparent hover:border-primary/20 hover:shadow-xl transition-all">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">insights</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Analiza postępów</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Inteligentna wizualizacja rozwoju Twoich umiejętności w czasie rzeczywistym.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- User Groups Section -->
+<section class="py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Golfers Card -->
+<div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 p-12 text-white">
+<div class="absolute top-0 right-0 p-8 opacity-20">
+<span class="material-symbols-outlined text-[120px]">sports_golf</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-3xl font-black mb-6">Dla Golfistów</h3>
+<ul class="space-y-4 mb-10 text-slate-300">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Precyzyjne śledzenie handicapu</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Zaawansowana analiza mapy pola</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Historia wszystkich Twoich rund</li>
+</ul>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all">Znajdź trenera</button>
+</div>
+</div>
+<!-- Coaches Card -->
+<div class="relative overflow-hidden rounded-[2.5rem] bg-white border border-primary/10 p-12 shadow-sm">
+<div class="absolute top-0 right-0 p-8 opacity-5 text-primary">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-3xl font-black mb-6 text-slate-900">Dla Trenerów</h3>
+<ul class="space-y-4 mb-10 text-slate-600">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Zarządzanie bazą uczniów</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Analiza wideo i narzędzia rysunkowe</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> Automatyczne raporty postępów</li>
+</ul>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all">Zarejestruj się jako trener</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coach Listing Preview -->
+<section class="bg-background-light py-24">
+<div class="mx-auto max-w-7xl px-6">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white">Nasi Top Trenerzy</h2>
+<p class="mt-2 text-slate-600">Trenuj pod okiem certyfikowanych profesjonalistów PGA.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">Zobacz wszystkich <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Coach Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-primary/5 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4 mb-6">
+<div class="h-16 w-16 rounded-full bg-cover bg-center" data-alt="Portrait of a female golf coach" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANbZV8JNvLZXlKSdxgsFX83tBpTXHrnWn_Y1R0FCQ6ATVv_n1lapbome0VvI8jK6z9cdV_uG_490kzD1OnFKMQOxulNESVRxzkb_c7Jlq2rsyEmgevcxqOQbcbekoNF_BafpvR586UevySudSCmNMvoG0tcLcRCQ2SldEVYAgxsEOBSbtfB2586Jk8nZ7hZ4MQiAAlJFjAnHxudsXVHBYtOv_OUVyTWNZC2rGoG9JMTJnLzFWXlPL3ogRfJRl2CwatcPfcIuyHQYFt')"></div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Anna Kowalska</h4>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tight">PGA Professional</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="text-slate-400 text-xs ml-2">(48 opinii)</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Specjalizacja: Short game i putting. 15 lat doświadczenia.</p>
+<button class="w-full py-2 bg-primary/5 text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Profil trenera</button>
+</div>
+<!-- Coach Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-primary/5 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4 mb-6">
+<div class="h-16 w-16 rounded-full bg-cover bg-center" data-alt="Portrait of a male golf coach" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaPpA6jpnEcGuAWnQDTM19G_sHw-JYUsNupU3Iho-TuwmQnscVA0_7PadQMrkN2EO7tk_ZquHmS4omiUoefLtpqDoirKzqmTjZfxvEJFO08DBjnTqP4SA5TrDt9P5xgCeF80FDQmkSR6rcddQglCPDoeua0-PEaOmab2JlBxkcpRUbiqzHkMvIIxCzspntjO8CB--98h-zK6rqQWjETDCkRQY3jXEtS81XTGreYKdbHsSTe4ey-8zMp49xtNKh7vnF6ILHSxUt6qyD')"></div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Marek Nowak</h4>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tight">Head Pro</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="text-slate-400 text-xs ml-2">(124 opinii)</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Ekspert od analizy swing-u. Trener kadry narodowej.</p>
+<button class="w-full py-2 bg-primary/5 text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Profil trenera</button>
+</div>
+<!-- Coach Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-primary/5 hover:shadow-md transition-shadow">
+<div class="flex items-center gap-4 mb-6">
+<div class="h-16 w-16 rounded-full bg-cover bg-center" data-alt="Portrait of a young male golf professional" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYNu0JUrsbTuJGydWpJudQOsodZbeWHZfNcvTmDmKMRRZYWKGIOotrRnCc6FJY62HsHtW46yNbP3VBE6Rz2DGFKyNP8uulvZMkK-Z28zk49mqmFjFRQRQm4MxuJC3oolKG8xfqm-g8c9brGFT5F8MDigannU4zt4iG7OQOJlj3fWyK9-ZaDJvjTuhxza6BzjDHUzd5tBCjSJHUHOcIVzoQRw4nemGQq3hPw2VRtL5v6YyK0fSdodLwGNiZI_gdk4MnYkrRoymE6-_n')"></div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Piotr Zieliński</h4>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tight">PGA Pro</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star</span>
+<span class="material-symbols-outlined text-lg">star_half</span>
+<span class="text-slate-400 text-xs ml-2">(32 opinie)</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Trening juniorów i początkujących. Skupienie na podstawach.</p>
+<button class="w-full py-2 bg-primary/5 text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Profil trenera</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-white dark:bg-slate-950">
+<div class="mx-auto max-w-7xl px-6">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">Prosty Cennik</h2>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Wybierz plan dopasowany do Twoich potrzeb. Bez ukrytych kosztów.</p>
+</div>
+<div class="max-w-4xl mx-auto overflow-hidden rounded-3xl border border-primary/10 shadow-lg">
+<table class="w-full text-left">
+<thead class="bg-primary text-white">
+<tr>
+<th class="p-8 text-xl font-black">Funkcja</th>
+<th class="p-8 text-center text-xl font-black">GOLFISTA</th>
+<th class="p-8 text-center text-xl font-black">TRENER</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="bg-background-light/50">
+<td class="p-6 font-medium">Śledzenie rund i statystyk</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+</tr>
+<tr>
+<td class="p-6 font-medium">Analiza postępów (AI)</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+</tr>
+<tr class="bg-background-light/50">
+<td class="p-6 font-medium">Narzędzia trenerskie i wideo</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-slate-300">close</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+</tr>
+<tr>
+<td class="p-6 font-medium">Zarządzanie uczniami</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-slate-300">close</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-green-600">check</span></td>
+</tr>
+<tr class="bg-primary/5">
+<td class="p-8 font-black text-slate-900">Cena</td>
+<td class="p-8 text-center">
+<div class="text-2xl font-black text-slate-900">0 zł</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Zawsze za darmo</div>
+</td>
+<td class="p-8 text-center">
+<div class="text-2xl font-black text-slate-900">49 zł <span class="text-sm font-normal text-slate-500">/mies</span></div>
+<div class="text-xs text-primary uppercase font-bold tracking-wider">30 dni trialu</div>
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="p-8 text-center">
+<button class="w-full py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all">Wybierz Free</button>
+</td>
+<td class="p-8 text-center">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all">Rozpocznij Trial</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16">
+<div class="mx-auto max-w-7xl px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-lg">golf_course</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-white">GolfStats</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6">Najlepsza polska platforma do analizy gry w golfa i rozwoju umiejętności pod okiem ekspertów.</p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Produkt</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">O aplikacji</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Dla kogo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Funkcje</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cennik</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Wsparcie</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Centrum pomocy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Regulamin</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Prywatność</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Pobierz aplikację</h4>
+<div class="flex flex-col gap-3">
+<button class="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-lg transition-all border border-slate-700">
+<span class="material-symbols-outlined text-2xl">phone_iphone</span>
+<div class="text-left">
+<p class="text-[10px] uppercase font-bold text-slate-400 leading-none">Download on</p>
+<p class="text-sm font-bold">App Store</p>
+</div>
+</button>
+<button class="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-lg transition-all border border-slate-700">
+<span class="material-symbols-outlined text-2xl">ad_units</span>
+<div class="text-left">
+<p class="text-[10px] uppercase font-bold text-slate-400 leading-none">Get it on</p>
+<p class="text-sm font-bold">Google Play</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs">© 2024 GolfStats Sp. z o.o. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined">video_library</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
