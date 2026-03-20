@@ -427,16 +427,16 @@ function Hero() {
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-row items-center justify-center gap-4">
           <a
             href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(10,77,60,0.4)] flex items-center justify-center gap-2 text-center leading-tight"
+            className="flex-1 px-4 py-4 bg-primary text-white font-black rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(10,77,60,0.4)] flex items-center justify-center gap-2 text-center leading-tight"
           >
             <span>Zacznij grać lepiej<br />z GolfStats</span>
           </a>
           <a
             href={`${APP_REGISTER}?role=TRAINER`} target="_blank" rel="noopener noreferrer"
-            className={`w-full sm:w-auto px-8 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2 text-center leading-tight`}
+            className={`flex-1 px-4 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2 text-center leading-tight`}
           >
             <span>Zostań Trenerem<br />GolfStats</span>
           </a>
