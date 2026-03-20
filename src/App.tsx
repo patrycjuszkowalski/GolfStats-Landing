@@ -261,9 +261,9 @@ function CyclingQuestions() {
   return (
     <div className="mb-8 flex flex-col items-center gap-4">
       {/* pytanie */}
-      <div className="h-16 md:h-20 flex items-center justify-center px-4 w-full">
+      <div className="min-h-[4rem] md:min-h-[5rem] flex items-center justify-center px-6 w-full">
         <p
-          className="text-xl md:text-3xl font-black text-white text-center whitespace-nowrap leading-tight"
+          className="text-lg md:text-3xl font-black text-white text-center leading-tight"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(12px)',
