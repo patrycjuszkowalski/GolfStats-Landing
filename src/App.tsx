@@ -327,8 +327,8 @@ function Hero() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ GOLF</span>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Zawodnik</span>
+                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ GOLF</span>
+                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Zawodnik</span>
               </div>
             </div>
 
@@ -343,8 +343,8 @@ function Hero() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWOJE STATYSTYKI</span>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Dane z gry</span>
+                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWOJE STATYSTYKI</span>
+                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Dane z gry</span>
               </div>
             </div>
 
@@ -371,7 +371,7 @@ function Hero() {
                   { src: '/dbanie.png',  alt: 'Dbanie o zdrowie' },
                   { src: '/cele.png',    alt: 'Cele sportowe' },
                 ].map(({ src, alt }) => (
-                  <div key={src} className="w-16 h-12 md:w-40 md:h-32 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+                  <div key={src} className="w-20 h-16 md:w-40 md:h-32 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover"/>
                   </div>
                 ))}
@@ -393,8 +393,8 @@ function Hero() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">PLAN TRENINGU</span>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Od trenera</span>
+                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">PLAN TRENINGU</span>
+                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Od trenera</span>
               </div>
             </div>
 
@@ -412,8 +412,8 @@ function Hero() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ TRENER</span>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Trener</span>
+                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ TRENER</span>
+                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Trener</span>
               </div>
             </div>
 
