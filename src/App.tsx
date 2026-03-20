@@ -857,9 +857,9 @@ function DlaKogo() {
             <div className="flex justify-center mt-10">
               <a
                 href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
-                className="inline-block px-8 py-3 bg-white text-dark font-bold rounded-lg hover:bg-accent transition-all"
+                className="inline-block px-8 py-3 bg-white text-dark font-bold rounded-lg hover:bg-accent transition-all text-center leading-tight"
               >
-                ... to zacznij grać lepiej z GolfStats
+                Zacznij grać lepiej<br />z GolfStats
               </a>
             </div>
           </div>
@@ -880,9 +880,9 @@ function DlaKogo() {
             <div className="flex justify-center mt-10">
               <a
                 href={`${APP_REGISTER}?role=TRAINER`} target="_blank" rel="noopener noreferrer"
-                className="inline-block px-8 py-3 bg-accent text-dark font-bold rounded-lg hover:bg-white transition-all"
+                className="inline-block px-8 py-3 bg-accent text-dark font-bold rounded-lg hover:bg-white transition-all text-center leading-tight"
               >
-                ... to zostań Trenerem GolfStats
+                Zostań Trenerem<br />GolfStats
               </a>
             </div>
           </div>
