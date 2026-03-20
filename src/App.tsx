@@ -430,15 +430,15 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(10,77,60,0.4)] flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(10,77,60,0.4)] flex items-center justify-center gap-2 text-center leading-tight"
           >
-            JESTEM GOLFISTĄ
+            <span>Zacznij grać lepiej<br />z GolfStats</span>
           </a>
           <a
             href={`${APP_REGISTER}?role=TRAINER`} target="_blank" rel="noopener noreferrer"
-            className={`w-full sm:w-auto px-8 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2`}
+            className={`w-full sm:w-auto px-8 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2 text-center leading-tight`}
           >
-            JESTEM TRENEREM
+            <span>Zostań Trenerem<br />GolfStats</span>
           </a>
         </div>
 
