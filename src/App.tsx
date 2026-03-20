@@ -1,4 +1,4 @@
-import { useState, Fragment, type ReactNode } from 'react'
+import { useState, useEffect, Fragment, type ReactNode } from 'react'
 
 // ─── Stałe ────────────────────────────────────────────────────────────────────
 
@@ -9,6 +9,14 @@ const APPSTORE_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfVcvR
 const GOOGLEPLAY_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCa5ktsBFjCxE9g8BsHiZ82fwJC8AQZZr00omePdbP5LKODyggeAnSYRC66Iet0XMQudNnXCRnXrT16_a6eMihcaAvP8tscUtjErSvyoQa5lFHTxGzlcKF7PIZA_g1tYMsfwywE7ZA-dOGiyvHdx5Pldsg_UglAtIacV0YEmGYG8WdeidGFF39crLRJgnw9c506WHqrDeOhGaj2FjQlYl5JRunSfb96d6j_nR42euXMz4D8z49M1Z4TQycFovAUa4bRy8EKbWYng8iQ'
 
 const glass = 'bg-white/[0.03] backdrop-blur-md border border-white/10'
+
+// URL aplikacji – zmień na produkcyjny przed wdrożeniem
+const APP_URL = 'https://app.golfstats.pl'
+const APP_REGISTER = `${APP_URL}/register`
+const APP_LOGIN = `${APP_URL}/login`
+
+// Pomocnicza funkcja — otwiera link w nowej karcie
+const openInNewTab = (url: string) => window.open(url, '_blank', 'noopener,noreferrer')
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 
@@ -78,11 +86,11 @@ function Navbar() {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="#" className="px-5 py-2.5 text-sm font-bold text-white hover:text-accent transition-colors">
+          <a href={APP_LOGIN} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 text-sm font-bold text-white hover:text-accent transition-colors">
             Logowanie
           </a>
           <a
-            href="#"
+            href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className="px-6 py-2.5 text-sm font-black bg-accent text-dark rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(43,255,0,0.3)]"
           >
             DOŁĄCZ TERAZ
@@ -112,8 +120,8 @@ function Navbar() {
             </a>
           ))}
           <div className="pt-3 flex flex-col gap-2">
-            <a href="#" className="py-2 text-center text-sm font-bold text-white">Logowanie</a>
-            <a href="#" className="py-2.5 text-center text-sm font-black bg-accent text-dark rounded-full">
+            <a href={APP_LOGIN} target="_blank" rel="noopener noreferrer" className="py-2 text-center text-sm font-bold text-white">Logowanie</a>
+            <a href={APP_REGISTER} target="_blank" rel="noopener noreferrer" className="py-2.5 text-center text-sm font-black bg-accent text-dark rounded-full">
               DOŁĄCZ TERAZ
             </a>
           </div>
@@ -225,6 +233,65 @@ function PlannerMockup() {
       <rect x="10" y="80" width="38" height="5" rx="2.5" fill="#2bff00" opacity="0.7"/>
       <text x="48" y="93" textAnchor="middle" fill="#2bff00" fontSize="6" opacity="0.7">50% ukończone</text>
     </svg>
+  )
+}
+
+// ─── CyclingQuestions ─────────────────────────────────────────────────────────
+
+const QUESTIONS = [
+  'Kochasz grać w golfa?',
+  'Cieszysz się każdą chwilą spędzoną na polu?',
+  'Zależy Ci na poprawie wyników?',
+  'Chcesz grać nie martwiąc się o kontuzje?',
+]
+
+function CyclingQuestions() {
+  const [idx, setIdx] = useState(0)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false)
+      setTimeout(() => {
+        setIdx(i => (i + 1) % QUESTIONS.length)
+        setVisible(true)
+      }, 400)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="mb-8 flex flex-col items-center gap-4">
+      {/* pytanie */}
+      <div className="h-16 md:h-20 flex items-center justify-center px-4 w-full">
+        <p
+          className="text-xl md:text-3xl font-black text-white text-center whitespace-nowrap leading-tight"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(12px)',
+            transition: 'opacity 0.4s ease, transform 0.4s ease',
+          }}
+        >
+          {QUESTIONS[idx]}
+        </p>
+      </div>
+      {/* progress dots */}
+      <div className="flex gap-2">
+        {QUESTIONS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setVisible(false); setTimeout(() => { setIdx(i); setVisible(true) }, 400) }}
+            className="transition-all duration-300 rounded-full"
+            style={{
+              width: i === idx ? 24 : 8,
+              height: 8,
+              background: i === idx ? '#2bff00' : 'rgba(255,255,255,0.2)',
+              boxShadow: i === idx ? '0 0 8px #2bff00' : 'none',
+            }}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -355,10 +422,8 @@ function Hero() {
           </div>
         </div>{/* koniec panelu */}
 
-        <p className="text-lg md:text-xl text-slate-300 mb-4 max-w-2xl mx-auto leading-relaxed">
-          Kochasz golfa? Cieszysz się każdą chwilą spędzoną na polu? Zależy Ci na poprawie wyników? Chcesz grać nie martwiąc się o kontuzje?
-        </p>
-        <p className="mb-10 max-w-2xl mx-auto">
+        <CyclingQuestions />
+        <p className="mb-10 max-w-2xl mx-auto text-center">
           <span className="block text-white font-semibold text-xl md:text-2xl mb-1">Zmień sposób, w jaki trenujesz!</span>
           <span className="block text-accent font-black tracking-widest uppercase text-2xl md:text-3xl">Sprawdź naszą aplikację</span>
         </p>
@@ -366,14 +431,14 @@ function Hero() {
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#dla-kogo"
+            href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(10,77,60,0.4)] flex items-center justify-center gap-2"
           >
             JESTEM GOLFISTĄ
           </a>
           <a
-            href="#dla-kogo"
-            className={`w-full sm:w-auto px-8 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 transition-colors flex items-center justify-center gap-2`}
+            href={`${APP_REGISTER}?role=TRAINER`} target="_blank" rel="noopener noreferrer"
+            className={`w-full sm:w-auto px-8 py-4 ${glass} text-white font-black rounded-xl hover:bg-white/10 hover:scale-105 transition-all flex items-center justify-center gap-2`}
           >
             JESTEM TRENEREM
           </a>
@@ -497,7 +562,7 @@ const FEATURES: Feature[] = [
   {
     Icon: IconScore,
     title: <>Łatwe Dodawanie<br/>Wyników Rund</>,
-    desc: <>W łatwy sposób wprowadzisz dane swoich rund Turniejowych oraz Treningowych. Możesz to zrobić ręcznie ale również <span className="text-accent font-medium">masz możliwość podyktowania wyników</span> w Aplikacji. Dane te posłużą do analizy Twojej gry i zaplanowania dalszego rozwoju.</>,
+    desc: <>W łatwy sposób wprowadzisz dane swoich rund Turniejowych oraz Treningowych rozegranych na polach w Polsce. Możesz to zrobić ręcznie ale również <span className="text-accent font-medium">masz możliwość podyktowania wyników</span> w Aplikacji. Dane te posłużą do analizy Twojej gry i zaplanowania dalszego rozwoju.</>,
     headline: ['Koniec z uciążliwym', 'wpisywaniem wyników'],
     subheadline: 'GolfStats zrobi to za Ciebie.',
     body: <>
@@ -574,9 +639,12 @@ function Features() {
   return (
     <section id="o-aplikacji" className="py-10 md:py-24 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
-        <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter">
-          Zaawansowane Funkcje
+        <h2 className="text-3xl font-black text-white uppercase tracking-tighter">
+          Funkcje Aplikacji
         </h2>
+        <h3 className="text-1xl font-black text-white mb-4 uppercase tracking-tighter">
+          Prostota i funkcjonalność
+        </h3>
         <div className="w-20 h-1.5 bg-accent" />
       </div>
 
@@ -790,7 +858,7 @@ function DlaKogo() {
             </ul>
             <div className="flex justify-center mt-10">
               <a
-                href="#"
+                href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-white text-dark font-bold rounded-lg hover:bg-accent transition-all"
               >
                 ... to zacznij grać lepiej z GolfStats
@@ -813,7 +881,7 @@ function DlaKogo() {
             </ul>
             <div className="flex justify-center mt-10">
               <a
-                href="#"
+                href={`${APP_REGISTER}?role=TRAINER`} target="_blank" rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-accent text-dark font-bold rounded-lg hover:bg-white transition-all"
               >
                 ... to zostań Trenerem GolfStats
@@ -833,9 +901,9 @@ function Cennik() {
     <section id="cennik" className="py-10 md:py-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-black text-white mb-4 tracking-tighter">
-          Cennik dopasowany do celów
+          Wybierz swój plan treningowy
         </h2>
-        <p className="text-slate-400">Wybierz plan, który pomoże Ci osiągnąć kolejny poziom.</p>
+        <p className="text-slate-400">Wybierz plan, który odpowiada Twoim potrzebom.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -848,74 +916,87 @@ function Cennik() {
           </div>
           <p className="text-slate-500 text-sm mb-6">Bezpłatnie, na zawsze</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {['Zapis 5 rund miesięcznie', 'Podstawowe statystyki', 'Aplikacja mobilna'].map((f) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
+            {[
+              <>Zapis <span className="text-accent font-bold">5 rund</span> miesięcznie</>,
+              <><span className="text-accent font-bold">Podstawowe</span> statystyki</>,
+              'Aplikacja mobilna',
+            ].map((f, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
                 <CheckIcon /> {f}
               </li>
             ))}
           </ul>
           <a
-            href="#"
+            href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className={`w-full py-3 text-center ${glass} rounded-lg font-bold text-white hover:bg-white/10 transition-all`}
           >
             Wybierz Free
           </a>
         </div>
 
-        {/* Pro — wyróżniony */}
+        {/* Start — wyróżniony */}
         <div className="bg-primary/40 border-2 border-accent p-8 rounded-2xl flex flex-col relative scale-105 shadow-2xl shadow-accent/10">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-dark text-[10px] font-black px-4 py-1 rounded-full uppercase whitespace-nowrap">
             POLECANY WYBÓR
           </div>
-          <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Pro</span>
+          <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Start</span>
           <div className="flex items-baseline gap-1 mb-2">
-            <span className="text-4xl font-black text-white">49 zł</span>
+            <span className="text-4xl font-black text-white">19 zł</span>
             <span className="text-slate-400">/mies.</span>
           </div>
-          <p className="text-slate-400 text-sm mb-6">30 dni trialu za darmo</p>
+          <p className="text-slate-400 text-sm mb-6">14 dni trialu za darmo</p>
           <ul className="space-y-3 mb-8 flex-1">
             {[
-              'Nielimitowane rundy',
-              'Analiza Strokes Gained',
-              'Połączenie z trenerem',
-              'Zapis głosowy AI',
-              'Szczegółowe raporty',
-            ].map((f) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-white">
+              <>Zapis <span className="text-accent font-bold">15 rund</span> miesięcznie</>,
+              <><span className="text-accent font-bold">Szczegółowe</span> statystyki</>,
+              'Aplikacja mobilna',
+              <>Połączenie z <span className="text-accent font-bold">jednym</span> Trenerem</>,
+              <><span className="text-accent font-bold">Zapis głosowy</span> wyników rund AI</>,
+              'System polecen Member get Member',
+            ].map((f, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm text-white">
                 <CheckIcon /> {f}
               </li>
             ))}
           </ul>
           <a
-            href="#"
+            href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className="w-full py-4 text-center bg-accent text-dark rounded-xl font-black hover:scale-[1.02] transition-all shadow-[0_10px_20px_rgba(43,255,0,0.2)]"
           >
-            Zacznij Pro
+            Wybierz Start
           </a>
         </div>
 
-        {/* Academy */}
+        {/* Full */}
         <div className={`${glass} p-8 rounded-2xl flex flex-col`}>
-          <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Academy</span>
+          <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Full</span>
           <div className="flex items-baseline gap-1 mb-2">
-            <span className="text-4xl font-black text-white">199 zł</span>
+            <span className="text-4xl font-black text-white">29 zł</span>
             <span className="text-slate-400">/mies.</span>
           </div>
-          <p className="text-slate-500 text-sm mb-6">Dla trenerów i akademii</p>
+          <p className="text-slate-500 text-sm mb-6">14 dni trialu za darmo</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {['Do 20 uczniów', 'Pełna analityka grupowa', 'Raporty PDF dla uczniów', 'Priorytetowe wsparcie'].map(
-              (f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
-                  <CheckIcon /> {f}
-                </li>
-              )
-            )}
+            {[
+              <><span className="text-accent font-bold">Nielimitowany</span> zapis rund</>,
+              <><span className="text-accent font-bold">Szczegółowe</span> statystyki</>,
+              'Aplikacja mobilna',
+              <>Połączenie z <span className="text-accent font-bold">wieloma</span> Trenerami</>,
+              <><span className="text-accent font-bold">Zapis głosowy</span> wyników rund AI</>,
+              'System polecen Member get Member',
+              <><span className="text-accent font-bold">Indywidualny</span> plan treningowy</>,
+              <>Możliwość <span className="text-accent font-bold">eksportu danych</span> do pliku CSV</>,
+              <>Dodawanie <span className="text-accent font-bold">pól golfowych</span> do Aplikacji</>,
+            ].map((f, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                <CheckIcon /> {f}
+              </li>
+            ))}
           </ul>
           <a
             href="mailto:kontakt@golfstats.pl"
             className={`w-full py-3 text-center ${glass} rounded-lg font-bold text-white hover:bg-white/10 transition-all`}
           >
-            Skontaktuj się
+            Wybierz Full
           </a>
         </div>
       </div>
