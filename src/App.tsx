@@ -16,6 +16,13 @@ const APP_REGISTER = `${APP_URL}/register`
 const APP_LOGIN = `${APP_URL}/login`
 
 
+// ─── ObfuscatedEmail ──────────────────────────────────────────────────────────
+
+function ObfuscatedEmail() {
+  const u = 'kontakt', d = 'golfstats', t = 'pl'
+  return <span className="text-accent">{u}{'@'}{d}{'.'}{t}</span>
+}
+
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 
 function Logo({ small = false }: { small?: boolean }) {
@@ -1054,7 +1061,7 @@ function PrivacyPolicy() {
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-white">1. Administrator danych osobowych</h2>
-        <p>Administratorem Twoich danych osobowych jest właściciel serwisu GolfStats dostępnego pod adresem <strong>golfstats.pl</strong> i <strong>app.golfstats.pl</strong>. W sprawach dotyczących ochrony danych osobowych możesz skontaktować się pod adresem e-mail: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>.</p>
+        <p>Administratorem Twoich danych osobowych jest właściciel serwisu GolfStats dostępnego pod adresem <strong>golfstats.pl</strong> i <strong>app.golfstats.pl</strong>. W sprawach dotyczących ochrony danych osobowych możesz skontaktować się pod adresem e-mail: <ObfuscatedEmail />.</p>
       </section>
 
       <section className="space-y-3">
@@ -1108,7 +1115,7 @@ function PrivacyPolicy() {
           <li><strong>Sprzeciw</strong> wobec przetwarzania opartego na prawnie uzasadnionym interesie.</li>
           <li><strong>Cofnięcie zgody</strong> w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania przed cofnięciem.</li>
         </ul>
-        <p>Wnioski kieruj na adres: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>. Masz również prawo do wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</p>
+        <p>Wnioski kieruj na adres: <ObfuscatedEmail />. Masz również prawo do wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</p>
       </section>
 
       <section className="space-y-3">
@@ -1128,7 +1135,7 @@ function PrivacyPolicy() {
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-white">10. Kontakt</h2>
-        <p>W sprawach dotyczących prywatności: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a></p>
+        <p>W sprawach dotyczących prywatności: <ObfuscatedEmail /></p>
       </section>
     </div>
   )
@@ -1207,14 +1214,14 @@ function TermsOfService() {
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-white">§7. Rozwiązanie umowy i usunięcie konta</h2>
-        <p>7.1. Użytkownik może usunąć Konto w dowolnym momencie z poziomu ustawień aplikacji lub wysyłając prośbę na adres kontakt@golfstats.pl. Usunięcie Konta jest nieodwracalne.</p>
+        <p>7.1. Użytkownik może usunąć Konto w dowolnym momencie z poziomu ustawień aplikacji lub wysyłając prośbę na adres <ObfuscatedEmail />. Usunięcie Konta jest nieodwracalne.</p>
         <p>7.2. Usługodawca może zablokować lub usunąć Konto w przypadku naruszenia Regulaminu, po uprzednim wezwaniu do zaprzestania naruszeń (chyba że naruszenie jest rażące).</p>
         <p>7.3. W przypadku rozwiązania umowy w trakcie okresu rozliczeniowego Użytkownikowi nie przysługuje zwrot proporcjonalnej części opłaty, chyba że przepisy prawa konsumenckiego stanowią inaczej.</p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-white">§8. Reklamacje</h2>
-        <p>8.1. Reklamacje dotyczące usług należy składać drogą elektroniczną na adres <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>.</p>
+        <p>8.1. Reklamacje dotyczące usług należy składać drogą elektroniczną na adres <ObfuscatedEmail />.</p>
         <p>8.2. Reklamacja powinna zawierać: dane Użytkownika (e-mail), opis problemu oraz oczekiwany sposób rozwiązania.</p>
         <p>8.3. Usługodawca rozpatruje reklamacje w terminie 14 dni roboczych od jej otrzymania.</p>
       </section>
@@ -1225,7 +1232,7 @@ function TermsOfService() {
         <p>9.2. Spory pomiędzy Usługodawcą a Użytkownikiem niebędącym konsumentem rozstrzygane są przez sąd właściwy dla siedziby Usługodawcy.</p>
         <p>9.3. Konsument może skorzystać z pozasądowych metod rozwiązywania sporów, w tym z platformy ODR dostępnej pod adresem ec.europa.eu/consumers/odr.</p>
         <p>9.4. Usługodawca zastrzega prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani e-mailem lub komunikatem w aplikacji z co najmniej 14-dniowym wyprzedzeniem. Dalsze korzystanie z Serwisu po wejściu zmian w życie oznacza ich akceptację.</p>
-        <p>9.5. Kontakt: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a></p>
+        <p>9.5. Kontakt: <ObfuscatedEmail /></p>
       </section>
     </div>
   )
