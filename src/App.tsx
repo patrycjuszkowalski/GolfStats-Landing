@@ -1035,8 +1035,8 @@ function Footer() {
           <span className="text-sm text-slate-500">© 2025 GolfStats. Wszelkie prawa zastrzeżone.</span>
         </div>
         <div className="flex gap-6 text-sm font-medium text-slate-500">
-          <a href="#" className="hover:text-accent transition-colors">Polityka prywatności</a>
-          <a href="#" className="hover:text-accent transition-colors">Regulamin</a>
+          <a href="#/polityka-prywatnosci" className="hover:text-accent transition-colors">Polityka prywatności</a>
+          <a href="#/regulamin" className="hover:text-accent transition-colors">Regulamin</a>
           <a href="mailto:kontakt@golfstats.pl" className="hover:text-accent transition-colors">Kontakt</a>
         </div>
       </div>
@@ -1044,9 +1044,225 @@ function Footer() {
   )
 }
 
+// ─── Polityka prywatności ─────────────────────────────────────────────────────
+
+function PrivacyPolicy() {
+  return (
+    <div className="max-w-3xl mx-auto px-6 py-16 text-slate-300 space-y-8">
+      <h1 className="text-3xl font-black text-white">Polityka prywatności</h1>
+      <p className="text-sm text-slate-500">Ostatnia aktualizacja: marzec 2026</p>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">1. Administrator danych osobowych</h2>
+        <p>Administratorem Twoich danych osobowych jest właściciel serwisu GolfStats dostępnego pod adresem <strong>golfstats.pl</strong> i <strong>app.golfstats.pl</strong>. W sprawach dotyczących ochrony danych osobowych możesz skontaktować się pod adresem e-mail: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">2. Jakie dane zbieramy</h2>
+        <p>W trakcie korzystania z aplikacji GolfStats przetwarzamy następujące dane:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Dane rejestracyjne:</strong> adres e-mail, imię i nazwisko, rola (zawodnik / trener).</li>
+          <li><strong>Dane profilowe:</strong> płeć, data urodzenia, miasto, telefon, klub golfowy, handicap, kategoria PZG, cele treningowe.</li>
+          <li><strong>Dane z gry:</strong> wyniki rund, statystyki uderzeń (lie, odległość, kara), dane dołków i pól golfowych.</li>
+          <li><strong>Materiały wideo:</strong> filmy z nagrań treningowych wgrywane dobrowolnie przez użytkownika.</li>
+          <li><strong>Wiadomości:</strong> treść korespondencji pomiędzy zawodnikiem a trenerem w ramach aplikacji.</li>
+          <li><strong>Dane techniczne:</strong> adres IP, typ przeglądarki, logi dostępu – na potrzeby bezpieczeństwa i diagnostyki.</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">3. Cel i podstawa przetwarzania</h2>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Świadczenie usług</strong> (art. 6 ust. 1 lit. b RODO) – prowadzenie konta, analiza statystyk, komunikacja trener–zawodnik.</li>
+          <li><strong>Wysyłka e-maili</strong> (art. 6 ust. 1 lit. b RODO) – powiadomienia o aktywności konta, potwierdzenie rejestracji.</li>
+          <li><strong>Prawnie uzasadniony interes</strong> (art. 6 ust. 1 lit. f RODO) – bezpieczeństwo systemu, wykrywanie nadużyć, logi techniczne.</li>
+          <li><strong>Zgoda</strong> (art. 6 ust. 1 lit. a RODO) – marketing bezpośredni, jeżeli wyrazisz na to odrębną zgodę.</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">4. Okres przechowywania danych</h2>
+        <p>Dane przechowujemy przez czas trwania umowy (aktywnego konta), a po jej rozwiązaniu przez okres wymagany przepisami prawa (do 5 lat w przypadku danych finansowych) lub do czasu cofnięcia zgody. Dane konta możesz usunąć samodzielnie z poziomu aplikacji lub kontaktując się z nami.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">5. Odbiorcy danych</h2>
+        <p>Twoje dane mogą być przekazywane wyłącznie zaufanym podmiotom przetwarzającym, z którymi zawarliśmy umowę powierzenia:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Hostinger</strong> – infrastruktura serwerowa (serwer w UE).</li>
+          <li><strong>Brevo (Sendinblue)</strong> – wysyłka e-maili transakcyjnych.</li>
+          <li><strong>Anthropic</strong> – przetwarzanie transkryptów głosowych w celu analizy wyników (dane są pseudoanonimowe, bez danych identyfikacyjnych użytkownika).</li>
+        </ul>
+        <p>Nie sprzedajemy ani nie udostępniamy danych osobom trzecim w celach marketingowych.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">6. Twoje prawa</h2>
+        <p>Zgodnie z RODO przysługują Ci następujące prawa:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Dostęp</strong> do Twoich danych oraz uzyskanie ich kopii.</li>
+          <li><strong>Sprostowanie</strong> nieprawidłowych lub niekompletnych danych.</li>
+          <li><strong>Usunięcie</strong> danych („prawo do bycia zapomnianym").</li>
+          <li><strong>Ograniczenie przetwarzania</strong> w określonych przypadkach.</li>
+          <li><strong>Przenoszenie</strong> danych do innego administratora.</li>
+          <li><strong>Sprzeciw</strong> wobec przetwarzania opartego na prawnie uzasadnionym interesie.</li>
+          <li><strong>Cofnięcie zgody</strong> w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania przed cofnięciem.</li>
+        </ul>
+        <p>Wnioski kieruj na adres: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>. Masz również prawo do wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">7. Pliki cookies</h2>
+        <p>Aplikacja GolfStats korzysta wyłącznie z niezbędnych plików cookies i localStorage służących do utrzymania sesji użytkownika oraz zapamiętania preferencji motywu (jasny/ciemny). Nie stosujemy plików cookies analitycznych ani reklamowych podmiotów trzecich.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">8. Bezpieczeństwo</h2>
+        <p>Stosujemy szyfrowanie HTTPS (TLS), hasła przechowujemy w formie skrótów kryptograficznych (bcrypt), a dostęp do danych produkcyjnych jest ograniczony. Mimo stosowania środków technicznych i organizacyjnych nie możemy zagwarantować absolutnego bezpieczeństwa w internecie.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">9. Zmiany polityki</h2>
+        <p>Zastrzegamy prawo do zmiany niniejszej polityki. O istotnych zmianach poinformujemy e-mailem lub komunikatem w aplikacji. Korzystanie z aplikacji po wejściu w życie zmian oznacza ich akceptację.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">10. Kontakt</h2>
+        <p>W sprawach dotyczących prywatności: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a></p>
+      </section>
+    </div>
+  )
+}
+
+// ─── Regulamin ────────────────────────────────────────────────────────────────
+
+function TermsOfService() {
+  return (
+    <div className="max-w-3xl mx-auto px-6 py-16 text-slate-300 space-y-8">
+      <h1 className="text-3xl font-black text-white">Regulamin serwisu GolfStats</h1>
+      <p className="text-sm text-slate-500">Ostatnia aktualizacja: marzec 2026</p>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§1. Definicje</h2>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Serwis</strong> – aplikacja webowa dostępna pod adresem app.golfstats.pl wraz ze stroną golfstats.pl.</li>
+          <li><strong>Usługodawca</strong> – właściciel i operator Serwisu GolfStats.</li>
+          <li><strong>Użytkownik</strong> – osoba fizyczna korzystająca z Serwisu po założeniu Konta.</li>
+          <li><strong>Zawodnik</strong> – Użytkownik korzystający z funkcji śledzenia rund i statystyk.</li>
+          <li><strong>Trener</strong> – Użytkownik korzystający z funkcji zarządzania podopiecznymi i planowania treningów.</li>
+          <li><strong>Konto</strong> – indywidualne konto Użytkownika chronione hasłem.</li>
+          <li><strong>Plan</strong> – wybrany pakiet dostępu do funkcji Serwisu (Bezpłatny lub Premium).</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§2. Zakres usług</h2>
+        <p>GolfStats świadczy usługi drogą elektroniczną polegające na:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li>rejestracji i analizie wyników rund golfowych (statystyki uderzeń, handicap, porównania),</li>
+          <li>komunikacji pomiędzy Zawodnikiem a Trenerem (wiadomości, wideo, plany treningowe),</li>
+          <li>głosowym wprowadzaniu wyników przy użyciu technologii AI,</li>
+          <li>przechowywaniu danych z gry i materiałów wideo.</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§3. Rejestracja i konto</h2>
+        <p>3.1. Korzystanie z Serwisu wymaga założenia Konta. Rejestracja jest bezpłatna.</p>
+        <p>3.2. Użytkownik zobowiązuje się podać prawdziwe dane i utrzymywać je w aktualności.</p>
+        <p>3.3. Użytkownik odpowiada za zachowanie poufności hasła i wszelkie działania podjęte z jego Konta.</p>
+        <p>3.4. Zabronione jest zakładanie Kont w imieniu innych osób bez ich zgody oraz tworzenie kont fikcyjnych.</p>
+        <p>3.5. Jeden Użytkownik może posiadać tylko jedno aktywne Konto.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§4. Plany i płatności</h2>
+        <p>4.1. Serwis oferuje Plan Bezpłatny z ograniczonym zakresem funkcji oraz Plan Premium z pełnym dostępem.</p>
+        <p>4.2. Ceny i zakres Planów określone są w Cenniku dostępnym na stronie golfstats.pl. Usługodawca zastrzega prawo zmiany cennika z zachowaniem 30-dniowego okresu powiadomienia.</p>
+        <p>4.3. Płatności za Plan Premium realizowane są z góry za wybrany okres rozliczeniowy za pośrednictwem operatora płatności.</p>
+        <p>4.4. Faktury VAT wystawiane są na żądanie Użytkownika po podaniu danych do faktury.</p>
+        <p>4.5. Użytkownikowi będącemu konsumentem przysługuje prawo odstąpienia od umowy w ciągu 14 dni od zawarcia, chyba że w tym czasie skorzystał z usługi cyfrowej i utracił prawo do odstąpienia po udzieleniu wyraźnej zgody.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§5. Prawa i obowiązki Użytkownika</h2>
+        <p>5.1. Użytkownik zobowiązuje się korzystać z Serwisu zgodnie z prawem, dobrymi obyczajami i niniejszym Regulaminem.</p>
+        <p>5.2. Zabronione jest:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li>publikowanie treści bezprawnych, obraźliwych lub naruszających prawa osób trzecich,</li>
+          <li>wgrywanie plików zawierających złośliwe oprogramowanie,</li>
+          <li>podejmowanie działań zakłócających pracę Serwisu (ataki DDoS, scraping, automatyczne boty),</li>
+          <li>udostępnianie dostępu do Konta Premium osobom trzecim.</li>
+        </ul>
+        <p>5.3. Użytkownik zachowuje prawa autorskie do wgrywanych przez siebie materiałów (wideo, nagrania) i udziela Usługodawcy nieodpłatnej licencji na ich przechowywanie i wyświetlanie wyłącznie w celu świadczenia usługi.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§6. Odpowiedzialność</h2>
+        <p>6.1. Serwis jest narzędziem pomocniczym i nie zastępuje porad wykwalifikowanego trenera golfowego ani lekarza. Usługodawca nie odpowiada za decyzje treningowe podjęte na podstawie danych z Serwisu.</p>
+        <p>6.2. Usługodawca dokłada starań w celu zapewnienia ciągłości działania Serwisu, jednak nie gwarantuje dostępności 24/7 i zastrzega prawo do przerw technicznych z wyprzedzającym powiadomieniem.</p>
+        <p>6.3. Usługodawca nie odpowiada za treści wiadomości wymieniane pomiędzy Użytkownikami.</p>
+        <p>6.4. Odpowiedzialność Usługodawcy wobec Użytkownika (niebędącego konsumentem) ograniczona jest do wysokości opłat uiszczonych przez Użytkownika za ostatnie 3 miesiące.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§7. Rozwiązanie umowy i usunięcie konta</h2>
+        <p>7.1. Użytkownik może usunąć Konto w dowolnym momencie z poziomu ustawień aplikacji lub wysyłając prośbę na adres kontakt@golfstats.pl. Usunięcie Konta jest nieodwracalne.</p>
+        <p>7.2. Usługodawca może zablokować lub usunąć Konto w przypadku naruszenia Regulaminu, po uprzednim wezwaniu do zaprzestania naruszeń (chyba że naruszenie jest rażące).</p>
+        <p>7.3. W przypadku rozwiązania umowy w trakcie okresu rozliczeniowego Użytkownikowi nie przysługuje zwrot proporcjonalnej części opłaty, chyba że przepisy prawa konsumenckiego stanowią inaczej.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§8. Reklamacje</h2>
+        <p>8.1. Reklamacje dotyczące usług należy składać drogą elektroniczną na adres <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a>.</p>
+        <p>8.2. Reklamacja powinna zawierać: dane Użytkownika (e-mail), opis problemu oraz oczekiwany sposób rozwiązania.</p>
+        <p>8.3. Usługodawca rozpatruje reklamacje w terminie 14 dni roboczych od jej otrzymania.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§9. Postanowienia końcowe</h2>
+        <p>9.1. Regulamin podlega prawu polskiemu. W sprawach nieunormowanych stosuje się przepisy Kodeksu cywilnego oraz ustawy o świadczeniu usług drogą elektroniczną.</p>
+        <p>9.2. Spory pomiędzy Usługodawcą a Użytkownikiem niebędącym konsumentem rozstrzygane są przez sąd właściwy dla siedziby Usługodawcy.</p>
+        <p>9.3. Konsument może skorzystać z pozasądowych metod rozwiązywania sporów, w tym z platformy ODR dostępnej pod adresem ec.europa.eu/consumers/odr.</p>
+        <p>9.4. Usługodawca zastrzega prawo do zmiany Regulaminu. O zmianach Użytkownicy zostaną poinformowani e-mailem lub komunikatem w aplikacji z co najmniej 14-dniowym wyprzedzeniem. Dalsze korzystanie z Serwisu po wejściu zmian w życie oznacza ich akceptację.</p>
+        <p>9.5. Kontakt: <a href="mailto:kontakt@golfstats.pl" className="text-accent hover:underline">kontakt@golfstats.pl</a></p>
+      </section>
+    </div>
+  )
+}
+
 // ─── App ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [page, setPage] = useState<'home' | 'privacy' | 'terms'>('home')
+
+  useEffect(() => {
+    const onHash = () => {
+      if (window.location.hash === '#/polityka-prywatnosci') setPage('privacy')
+      else if (window.location.hash === '#/regulamin') setPage('terms')
+      else setPage('home')
+    }
+    onHash()
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  if (page === 'privacy') return (
+    <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
+      <Navbar />
+      <main className="pt-20"><PrivacyPolicy /></main>
+      <Footer />
+    </div>
+  )
+
+  if (page === 'terms') return (
+    <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
+      <Navbar />
+      <main className="pt-20"><TermsOfService /></main>
+      <Footer />
+    </div>
+  )
+
   return (
     <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
       <Navbar />
