@@ -998,7 +998,7 @@ function Cennik() {
             ))}
           </ul>
           <a
-            href="mailto:kontakt@golfstats.pl"
+            href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
             className={`w-full py-3 text-center ${glass} rounded-lg font-bold text-white hover:bg-white/10 transition-all`}
           >
             Wybierz Full
