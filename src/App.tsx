@@ -15,8 +15,6 @@ const APP_URL = 'https://app.golfstats.pl'
 const APP_REGISTER = `${APP_URL}/register`
 const APP_LOGIN = `${APP_URL}/login`
 
-// Pomocnicza funkcja — otwiera link w nowej karcie
-const openInNewTab = (url: string) => window.open(url, '_blank', 'noopener,noreferrer')
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 
