@@ -138,7 +138,7 @@ function FlowArrow({ dir }: { dir: 'right' | 'left' }) {
   const arrowPath = isRight ? 'M76,6 L92,14 L76,22' : 'M24,6 L8,14 L24,22'
   const lineX = isRight ? { x1: 10, x2: 80 } : { x1: 90, x2: 20 }
   return (
-    <div className="h-8 md:h-28 flex items-center justify-center w-16 md:w-20 flex-shrink-0 rotate-90 md:rotate-0">
+    <div className="h-8 md:h-28 flex items-center justify-center w-10 md:w-12 flex-shrink-0 rotate-90 md:rotate-0">
       <svg viewBox="0 0 100 28" className="w-full text-accent" fill="none">
         {[0, 0.43, 0.86].map((begin) => (
           <circle key={begin} r="3.5" cy="14" fill="currentColor">
@@ -314,7 +314,7 @@ function Hero() {
         <div className="mb-8 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-6 md:px-8 md:py-8 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
 
           {/* Flow — 5 elementów */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-2">
 
             {/* 1. Twój Golf */}
             <div className="flex md:flex-col flex-row items-center gap-2 md:gap-2 md:w-32 flex-shrink-0">
