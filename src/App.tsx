@@ -1044,7 +1044,7 @@ function Footer() {
         <div className="flex gap-6 text-sm font-medium text-slate-500">
           <a href="#/polityka-prywatnosci" className="hover:text-accent transition-colors">Polityka prywatności</a>
           <a href="#/regulamin" className="hover:text-accent transition-colors">Regulamin</a>
-          <a href="mailto:kontakt@golfstats.pl" className="hover:text-accent transition-colors">Kontakt</a>
+          <a href="#/kontakt" className="hover:text-accent transition-colors">Kontakt</a>
         </div>
       </div>
     </footer>
@@ -1240,13 +1240,60 @@ function TermsOfService() {
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 
+// ─── Kontakt ──────────────────────────────────────────────────────────────────
+
+function ContactPage() {
+  return (
+    <div className="max-w-2xl mx-auto px-6 py-16 text-slate-300 space-y-8">
+      <h1 className="text-3xl font-black text-white">Kontakt</h1>
+
+      <section className="space-y-4">
+        <p className="text-lg text-slate-300">
+          Masz pytania dotyczące aplikacji, swojego konta lub współpracy? Napisz do nas — odpowiadamy w ciągu 1–2 dni roboczych.
+        </p>
+
+        <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 space-y-4">
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mb-1">E-mail ogólny</p>
+            <p className="text-white font-semibold"><ObfuscatedEmail /></p>
+          </div>
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mb-1">Sprawy techniczne i błędy</p>
+            <p className="text-white font-semibold"><ObfuscatedEmail /></p>
+          </div>
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mb-1">Współpraca i media</p>
+            <p className="text-white font-semibold"><ObfuscatedEmail /></p>
+          </div>
+        </div>
+
+        <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 space-y-2">
+          <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mb-1">Operator serwisu</p>
+          <p className="text-white font-semibold">GolfStats</p>
+          <p className="text-slate-400 text-sm">Polska</p>
+        </div>
+
+        <p className="text-sm text-slate-500">
+          Przed napisaniem zapoznaj się z naszą{' '}
+          <a href="#/polityka-prywatnosci" className="text-accent hover:underline">Polityką prywatności</a>
+          {' '}i{' '}
+          <a href="#/regulamin" className="text-accent hover:underline">Regulaminem</a>.
+        </p>
+      </section>
+    </div>
+  )
+}
+
+// ─── App ──────────────────────────────────────────────────────────────────────
+
 export default function App() {
-  const [page, setPage] = useState<'home' | 'privacy' | 'terms'>('home')
+  const [page, setPage] = useState<'home' | 'privacy' | 'terms' | 'contact'>('home')
 
   useEffect(() => {
     const onHash = () => {
       if (window.location.hash === '#/polityka-prywatnosci') setPage('privacy')
       else if (window.location.hash === '#/regulamin') setPage('terms')
+      else if (window.location.hash === '#/kontakt') setPage('contact')
       else setPage('home')
     }
     onHash()
@@ -1254,33 +1301,25 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  if (page === 'privacy') return (
+  const shell = (children: ReactNode) => (
     <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
       <Navbar />
-      <main className="pt-20"><PrivacyPolicy /></main>
+      <main className="pt-20">{children}</main>
       <Footer />
     </div>
   )
 
-  if (page === 'terms') return (
-    <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
-      <Navbar />
-      <main className="pt-20"><TermsOfService /></main>
-      <Footer />
-    </div>
-  )
+  if (page === 'privacy') return shell(<PrivacyPolicy />)
+  if (page === 'terms') return shell(<TermsOfService />)
+  if (page === 'contact') return shell(<ContactPage />)
 
-  return (
-    <div className="min-h-screen font-sans antialiased bg-[#1d262d] text-slate-100">
-      <Navbar />
-      <main className="pt-20">
-        <Hero />
-        <Features />
-        <DlaKogo />
-        <Cennik />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+  return shell(
+    <>
+      <Hero />
+      <Features />
+      <DlaKogo />
+      <Cennik />
+      <CTASection />
+    </>
   )
 }
