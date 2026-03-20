@@ -311,7 +311,7 @@ function Hero() {
       <div className="relative z-20 max-w-5xl mx-auto text-center px-4 md:px-6">
 
         {/* Główny panel — półprzezroczysty kafelek okalający cały flow */}
-        <div className="mb-8 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-6 md:px-8 md:py-8 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+        <div className="mb-8 mt-4 md:mt-0 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-6 md:px-8 md:py-8 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
 
           {/* Flow — 5 elementów */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
