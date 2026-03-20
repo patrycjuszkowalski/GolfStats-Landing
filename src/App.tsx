@@ -138,7 +138,7 @@ function FlowArrow({ dir }: { dir: 'right' | 'left' }) {
   const arrowPath = isRight ? 'M76,6 L92,14 L76,22' : 'M24,6 L8,14 L24,22'
   const lineX = isRight ? { x1: 10, x2: 80 } : { x1: 90, x2: 20 }
   return (
-    <div className="h-8 md:h-28 flex items-center justify-center w-10 md:w-12 flex-shrink-0 rotate-90 md:rotate-0">
+    <div className="h-6 md:h-28 flex items-center justify-center w-7 md:w-12 flex-shrink-0 rotate-90 md:rotate-0">
       <svg viewBox="0 0 100 28" className="w-full text-accent" fill="none">
         {[0, 0.43, 0.86].map((begin) => (
           <circle key={begin} r="3.5" cy="14" fill="currentColor">
@@ -314,20 +314,20 @@ function Hero() {
         <div className="mb-8 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-6 md:px-8 md:py-8 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
 
           {/* Flow — 5 elementów */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-2">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
 
             {/* 1. Twój Golf */}
-            <div className="flex md:flex-col flex-row items-center gap-2 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-14 md:h-28 flex items-center justify-center">
+            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
+              <div className="h-10 md:h-28 flex items-center justify-center">
                 <div className="relative">
-                  <div className="w-12 h-12 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
+                  <div className="w-9 h-9 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
                     <img src={GOLFER_IMG} alt="Golfista" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1d262d] flex items-center justify-center text-xs md:text-sm">⛳</div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ GOLF</span>
+                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ GOLF</span>
                 <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Zawodnik</span>
               </div>
             </div>
@@ -336,14 +336,14 @@ function Hero() {
             <FlowArrow dir="right" />
 
             {/* 2. Twoje Statystyki */}
-            <div className="flex md:flex-col flex-row items-center gap-2 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-14 md:h-28 flex items-center justify-center">
-                <div className="w-12 h-12 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
+            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
+              <div className="h-10 md:h-28 flex items-center justify-center">
+                <div className="w-9 h-9 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
                   <ChartMockup />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWOJE STATYSTYKI</span>
+                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWOJE STATYSTYKI</span>
                 <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Dane z gry</span>
               </div>
             </div>
@@ -371,7 +371,7 @@ function Hero() {
                   { src: '/dbanie.png',  alt: 'Dbanie o zdrowie' },
                   { src: '/cele.png',    alt: 'Cele sportowe' },
                 ].map(({ src, alt }) => (
-                  <div key={src} className="w-20 h-16 md:w-40 md:h-32 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+                  <div key={src} className="w-16 h-12 md:w-40 md:h-32 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover"/>
                   </div>
                 ))}
@@ -386,14 +386,14 @@ function Hero() {
             <FlowArrow dir="left" />
 
             {/* 4. Plan Treningu */}
-            <div className="flex md:flex-col flex-row items-center gap-2 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-14 md:h-28 flex items-center justify-center">
-                <div className="w-12 h-12 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
+            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
+              <div className="h-10 md:h-28 flex items-center justify-center">
+                <div className="w-9 h-9 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
                   <PlannerMockup />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">PLAN TRENINGU</span>
+                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">PLAN TRENINGU</span>
                 <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Od trenera</span>
               </div>
             </div>
@@ -402,17 +402,17 @@ function Hero() {
             <FlowArrow dir="left" />
 
             {/* 5. Twój Trener */}
-            <div className="flex md:flex-col flex-row items-center gap-2 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-14 md:h-28 flex items-center justify-center">
+            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
+              <div className="h-10 md:h-28 flex items-center justify-center">
                 <div className="relative">
-                  <div className="w-12 h-12 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
+                  <div className="w-9 h-9 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
                     <img src={TRAINER_IMG} alt="Trener" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1d262d] flex items-center justify-center text-xs md:text-sm">🏆</div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ TRENER</span>
+                <span className="text-[10px] md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ TRENER</span>
                 <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 px-2 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Trener</span>
               </div>
             </div>
