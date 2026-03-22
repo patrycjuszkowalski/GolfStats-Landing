@@ -3,8 +3,6 @@ import { useState, useEffect, Fragment, type ReactNode } from 'react'
 // ─── Stałe ────────────────────────────────────────────────────────────────────
 
 const HERO_BG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEgiWxHz6MFM7wA33LI0oOqKBSnCUYTwFyCAsmsJPoJ7HRMR6Q5Mb5ykyGjve9FUdJPOxOOH_PBMXW_-56kQDRIWnWe7104Lq1GqH6RBH6Yvj_a1rsog96OQyX-0LuLWDMlx9rYJlnFZfUk8fkN0Q7k2u_jzuZBfYYc44NkQSpNFBTEt4gld30ruItMPOIbvIrALqwQ3QoGwXqvz0W43EBrDKogaOCMtGaQUsSaPrjQ0LrUkFJrdeZIypXpKVpbpptzi7Eeuu-yYaN'
-const APPSTORE_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfVcvRKPLQI6xb34Afl9yg260RUoc23JsItK9TyLsjRlLPLROdGcOd9-fhU4KC4XYz_5aLbk1LSOIXzqU0k2TxjANMMyAUdMSi-VFmZvGR2pHdsFmq8vhhQIRKMy0UgmKRn3ahmUbR9-6rc0eRLSYI7UK062TeBI3C7bAaqrgo0fS2R_srCM7xwNdEf-OxhAd7hp5fpTu-UOrTMkz-0IiIg3W_0JwnARP2DGZkMcbuMh5PcAPVuvBdyESM98vtZIDiR8__0zxMleY8'
-const GOOGLEPLAY_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCa5ktsBFjCxE9g8BsHiZ82fwJC8AQZZr00omePdbP5LKODyggeAnSYRC66Iet0XMQudNnXCRnXrT16_a6eMihcaAvP8tscUtjErSvyoQa5lFHTxGzlcKF7PIZA_g1tYMsfwywE7ZA-dOGiyvHdx5Pldsg_UglAtIacV0YEmGYG8WdeidGFF39crLRJgnw9c506WHqrDeOhGaj2FjQlYl5JRunSfb96d6j_nR42euXMz4D8z49M1Z4TQycFovAUa4bRy8EKbWYng8iQ'
 
 const glass = 'bg-white/[0.03] backdrop-blur-md border border-white/10'
 
