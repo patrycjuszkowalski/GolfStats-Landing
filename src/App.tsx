@@ -349,109 +349,68 @@ function Hero() {
       <div className="relative z-20 max-w-5xl mx-auto text-center px-4 md:px-6">
 
         {/* Główny panel — półprzezroczysty kafelek okalający cały flow */}
-        <div className="mb-8 mt-4 md:mt-6 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-6 md:px-8 md:py-8 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+        <div className="mb-8 mt-4 md:mt-6 bg-white/[0.05] backdrop-blur-md border border-white/[0.1] rounded-3xl px-5 py-7 md:px-10 md:py-10 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
 
-          {/* Flow — 5 elementów */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+          {/* Flow — 3 elementy */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
 
-            {/* 1. Twój Golf */}
-            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-10 md:h-28 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-9 h-9 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
-                    <img src={GOLFER_IMG} alt="Golfista" className="w-full h-full object-cover object-top" />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1d262d] flex items-center justify-center text-xs md:text-sm">⛳</div>
-                </div>
+            {/* 1. Wyniki Rund (zawodnik) */}
+            <div className="flex md:flex-col items-center gap-3 md:gap-2 md:w-40 flex-shrink-0 w-full bg-white/[0.04] md:bg-transparent rounded-2xl md:rounded-none px-3 py-2 md:p-0 border border-white/10 md:border-0">
+              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">ZAWODNIK</span>
+              <div className="w-14 h-14 md:w-32 md:h-32 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl flex-shrink-0">
+                <ChartMockup />
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ GOLF</span>
-                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Zawodnik</span>
+              <div className="flex flex-col gap-0.5 flex-1 md:items-center">
+                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">ZAWODNIK</span>
+                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">WYNIKI RUND</span>
+                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">Dane z gry</span>
               </div>
             </div>
 
             {/* → */}
             <FlowArrow dir="right" />
 
-            {/* 2. Twoje Statystyki */}
-            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-10 md:h-28 flex items-center justify-center">
-                <div className="w-9 h-9 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
-                  <ChartMockup />
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWOJE STATYSTYKI</span>
-                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Dane z gry</span>
-              </div>
-            </div>
-
-            {/* → */}
-            <FlowArrow dir="right" />
-
-            {/* 3. CIĄGŁY ROZWÓJ — centrum: duży kontener z 4 kafelkami */}
-            <div className="flex-shrink-0 bg-white/[0.07] backdrop-blur rounded-3xl border border-white/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-2 md:p-3">
-              {/* Nagłówek — Analityka Pro-Data */}
-              <div className="flex justify-center mb-1.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/30 border border-accent/30">
-                  <span className="relative flex h-1.5 w-1.5">
+            {/* 2. CIĄGŁY ROZWÓJ — centrum */}
+            <div className="w-full md:flex-shrink-0 md:w-auto bg-white/[0.07] backdrop-blur rounded-3xl border border-white/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-3 md:p-4">
+              <div className="flex justify-center mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/30 border border-accent/30">
+                  <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                   </span>
-                  <span className="text-[9px] font-bold tracking-widest uppercase text-accent">Analityka Pro-Data</span>
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent">Analityka Pro-Data</span>
                 </div>
               </div>
-              {/* Siatka 4 kafelków */}
-              <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+              <div className="grid grid-cols-2 gap-2 md:gap-2.5">
                 {[
                   { src: '/poprawa.png', alt: 'Poprawa wyników' },
                   { src: '/radosc.png',  alt: 'Radość z gry' },
                   { src: '/dbanie.png',  alt: 'Dbanie o zdrowie' },
                   { src: '/cele.png',    alt: 'Cele sportowe' },
                 ].map(({ src, alt }) => (
-                  <div key={src} className="w-20 h-16 md:w-40 md:h-32 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+                  <div key={src} className="aspect-[4/3] md:w-44 md:h-36 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover"/>
                   </div>
                 ))}
               </div>
-              {/* Stopka — Ciągły Rozwój */}
-              <div className="flex justify-center mt-1.5">
-                <span className="text-[9px] font-bold tracking-widest uppercase text-accent/80 px-3 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">CIĄGŁY ROZWÓJ</span>
+              <div className="flex justify-center mt-2">
+                <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent/80 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">CIĄGŁY ROZWÓJ</span>
               </div>
             </div>
 
             {/* ← */}
             <FlowArrow dir="left" />
 
-            {/* 4. Plan Treningu */}
-            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-10 md:h-28 flex items-center justify-center">
-                <div className="w-9 h-9 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl">
-                  <PlannerMockup />
-                </div>
+            {/* 3. Twój Trener */}
+            <div className="flex md:flex-col items-center gap-3 md:gap-2 md:w-40 flex-shrink-0 w-full bg-white/[0.04] md:bg-transparent rounded-2xl md:rounded-none px-3 py-2 md:p-0 border border-white/10 md:border-0">
+              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">TWÓJ TRENER</span>
+              <div className="w-14 h-14 md:w-32 md:h-32 rounded-xl overflow-hidden ring-1 ring-accent/20 shadow-2xl flex-shrink-0">
+                <PlannerMockup />
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">PLAN TRENINGU</span>
-                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Od trenera</span>
-              </div>
-            </div>
-
-            {/* ← */}
-            <FlowArrow dir="left" />
-
-            {/* 5. Twój Trener */}
-            <div className="flex md:flex-col flex-row items-center gap-1.5 md:gap-2 md:w-32 flex-shrink-0">
-              <div className="h-10 md:h-28 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-9 h-9 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
-                    <img src={TRAINER_IMG} alt="Trener" className="w-full h-full object-cover object-top" />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1d262d] flex items-center justify-center text-xs md:text-sm">🏆</div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm md:text-2xl font-black text-white tracking-tight uppercase leading-tight text-center">TWÓJ TRENER</span>
-                <span className="text-[7px] md:text-[9px] font-bold tracking-widest uppercase text-slate-500 px-1 py-0.5 rounded-full border border-white/10 whitespace-nowrap text-center">Trener</span>
+              <div className="flex flex-col gap-0.5 flex-1 md:items-center">
+                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">TWÓJ TRENER</span>
+                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">ANALIZA GRY</span>
+                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">Plan Treningu</span>
               </div>
             </div>
 
@@ -480,17 +439,8 @@ function Hero() {
           </a>
         </div>
 
-        {/* Statystyki */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-10 text-slate-400">
-          {[['500+', 'aktywnych golfistów'], ['50+', 'certyfikowanych trenerów'], ['10k+', 'zapisanych rund']].map(
-            ([n, l]) => (
-              <div key={l} className="flex flex-col items-center">
-                <span className="text-3xl font-black text-white">{n}</span>
-                <span className="text-sm mt-1">{l}</span>
-              </div>
-            )
-          )}
-        </div>
+        {/* Statystyki – tymczasowo ukryte
+        */}
       </div>
     </section>
   )
