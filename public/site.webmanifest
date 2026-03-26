@@ -1,0 +1,12 @@
+{
+  "name": "GolfStats",
+  "short_name": "GolfStats",
+  "description": "Aplikacja dla golfistów i trenerów",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#081210",
+  "theme_color": "#0a4d3c",
+  "icons": [
+    { "src": "/logo_golfstats.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

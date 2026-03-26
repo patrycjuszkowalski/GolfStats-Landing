@@ -385,7 +385,7 @@ function Hero() {
                   { src: '/cele.png',    alt: 'Cele sportowe' },
                 ].map(({ src, alt }) => (
                   <div key={src} className="aspect-[4/3] md:w-44 md:h-36 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
-                    <img src={src} alt={alt} className="w-full h-full object-cover"/>
+                    <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -656,10 +656,10 @@ function Features() {
                   {f.subheadline && <p className="text-slate-300 text-sm font-medium">{f.subheadline}</p>}
                   <div className="text-slate-300 text-sm leading-relaxed">{f.body}</div>
                   {f.images?.[0] && (
-                    <img src={f.images[0]} alt="" className="w-full max-w-xs mx-auto drop-shadow-[0_8px_24px_rgba(43,255,0,0.2)]" />
+                    <img src={f.images[0]} alt="" className="w-full max-w-xs mx-auto drop-shadow-[0_8px_24px_rgba(43,255,0,0.2)]" loading="lazy" />
                   )}
                   {f.images?.[1] && (
-                    <img src={f.images[1]} alt="" className="w-full drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]" />
+                    <img src={f.images[1]} alt="" className="w-full drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]" loading="lazy" />
                   )}
                   <div className="flex items-center gap-4">
                     <button className="px-5 py-2.5 bg-accent text-[#0d1f1a] font-black rounded-xl hover:opacity-90 transition-opacity text-sm">
