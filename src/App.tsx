@@ -55,7 +55,7 @@ function CookieBanner() {
 function Logo({ small = false }: { small?: boolean }) {
   return (
     <img
-      src="/logo_golfstats.png"
+      src="/logo_golfstats.webp"
       alt="GolfStats"
       className={small ? 'h-8 w-auto rounded-lg' : 'h-12 w-auto rounded-xl'}
     />
@@ -133,6 +133,7 @@ function Navbar() {
         <button
           className="md:hidden p-2 text-slate-300 hover:text-accent transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Zamknij menu' : 'Otwórz menu'}
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -313,6 +314,7 @@ function CyclingQuestions() {
           <button
             key={i}
             onClick={() => { setVisible(false); setTimeout(() => { setIdx(i); setVisible(true) }, 400) }}
+            aria-label={`Pytanie ${i + 1}`}
             className="transition-all duration-300 rounded-full"
             style={{
               width: i === idx ? 24 : 8,
@@ -379,10 +381,10 @@ function Hero() {
               </div>
               <div className="grid grid-cols-2 gap-2 md:gap-2.5">
                 {[
-                  { src: '/poprawa.png', alt: 'Poprawa wyników' },
-                  { src: '/radosc.png',  alt: 'Radość z gry' },
-                  { src: '/dbanie.png',  alt: 'Dbanie o zdrowie' },
-                  { src: '/cele.png',    alt: 'Cele sportowe' },
+                  { src: '/poprawa.webp', alt: 'Poprawa wyników' },
+                  { src: '/radosc.webp',  alt: 'Radość z gry' },
+                  { src: '/dbanie.webp',  alt: 'Dbanie o zdrowie' },
+                  { src: '/cele.webp',    alt: 'Cele sportowe' },
                 ].map(({ src, alt }) => (
                   <div key={src} className="aspect-[4/3] md:w-44 md:h-36 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
@@ -539,7 +541,7 @@ const FEATURES: Feature[] = [
       <p className="text-slate-400 text-sm leading-relaxed mb-3">W GolfStats <span className="text-accent font-medium">wpisujesz wyniki ręcznie lub dyktujesz je głosowo</span>. Nasze AI zajmie się resztą — przetworzy Twoje słowa na pełne statystyki każdego dołka.</p>
     </>,
     cta: 'Wypróbuj AI za darmo',
-    images: ['/Rundy_nagrywanie_mowy.png', '/Rundy_3_telefony.png'],
+    images: ['/Rundy_nagrywanie_mowy.webp', '/Rundy_3_telefony.webp'],
   },
   {
     Icon: IconAnalysis,
@@ -547,7 +549,7 @@ const FEATURES: Feature[] = [
     desc: <>Statystyki i analiza postępów gry w szczególności <span className="text-accent font-medium">co się zmieniło w Twojej grze</span> w porównaniu z poprzednimi rundami. Dane FIR, GIR, Putts Gained, Up&amp;Down i Sand Saves dla każdej rundy. <span className="text-accent font-medium">Pełny wgląd</span> w każdy dołek, w każdą rundę oraz kompleksowa analiza Twojej gry.</>,
     headline: ['Dane statystyczne to fundament planowania', ''],
     subheadline: 'GolfStats pomoże je przygotować',
-    images: ['/Analiza_gry_1.png', '/Analiza_gry_2.png'],
+    images: ['/Analiza_gry_1.webp', '/Analiza_gry_2.webp'],
     imagesLeft: true,
     body: <>
       <p className="text-slate-400 text-sm leading-relaxed mb-3">Dane, dane i jeszcze raz dane ... ale co one oznaczają. Mnogość informacji może powodować zawrót głowy.</p>
@@ -562,7 +564,7 @@ const FEATURES: Feature[] = [
     desc: <>Masz możliwość <span className="text-accent font-medium">komunikowania się z Twoim Trenerem bezpośrednio w Aplikacji</span>. Twój trener widzi Twoje wiadomości, załączone filmy oraz zapisane rundy w czasie rzeczywistym. Masz kontakt z Trenerem i feedback odnośnie gry w jednym miejscu.</>,
     headline: ['Twój trener zawsze', 'blisko Ciebie'],
     subheadline: 'GolfStats porządkuje komunikację',
-    images: ['/Komunikacja.png'],
+    images: ['/Komunikacja.webp'],
     imagesLeft: true,
     body: <>
       <p className="text-slate-400 text-sm leading-relaxed mb-3">Ile razy będąc na Drivingu czy na Chippingu nie wiedziałeś dlaczego oddawane strzały nie lądują tam gdzie powinny, dlaczego grasz slice czu pull?</p>
