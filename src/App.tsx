@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment, type ReactNode } from 'react'
 
 // ─── Stałe ────────────────────────────────────────────────────────────────────
 
-const HERO_BG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEgiWxHz6MFM7wA33LI0oOqKBSnCUYTwFyCAsmsJPoJ7HRMR6Q5Mb5ykyGjve9FUdJPOxOOH_PBMXW_-56kQDRIWnWe7104Lq1GqH6RBH6Yvj_a1rsog96OQyX-0LuLWDMlx9rYJlnFZfUk8fkN0Q7k2u_jzuZBfYYc44NkQSpNFBTEt4gld30ruItMPOIbvIrALqwQ3QoGwXqvz0W43EBrDKogaOCMtGaQUsSaPrjQ0LrUkFJrdeZIypXpKVpbpptzi7Eeuu-yYaN'
+const HERO_BG = '/hero-bg.webp'
 
 const glass = 'bg-white/[0.03] backdrop-blur-md border border-white/10'
 
@@ -57,6 +57,8 @@ function Logo({ small = false }: { small?: boolean }) {
     <img
       src="/logo_golfstats.webp"
       alt="GolfStats"
+      width={180}
+      height={48}
       className={small ? 'h-8 w-auto rounded-lg' : 'h-12 w-auto rounded-xl'}
     />
   )
@@ -315,14 +317,17 @@ function CyclingQuestions() {
             key={i}
             onClick={() => { setVisible(false); setTimeout(() => { setIdx(i); setVisible(true) }, 400) }}
             aria-label={`Pytanie ${i + 1}`}
-            className="transition-all duration-300 rounded-full"
-            style={{
+            className="flex items-center justify-center"
+            style={{ minWidth: 28, minHeight: 28, background: 'transparent' }}
+          >
+            <span className="transition-all duration-300 rounded-full" style={{
               width: i === idx ? 24 : 8,
               height: 8,
+              display: 'block',
               background: i === idx ? '#2bff00' : 'rgba(255,255,255,0.2)',
               boxShadow: i === idx ? '0 0 8px #2bff00' : 'none',
-            }}
-          />
+            }} />
+          </button>
         ))}
       </div>
     </div>
