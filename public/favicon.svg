@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="18" cy="6" r="3"/>
-  <line x1="18" y1="9" x2="12" y2="22"/>
-  <line x1="12" y1="22" x2="8" y2="16"/>
-  <line x1="8" y1="16" x2="4" y2="22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Ciemne tło jak w logo -->
+  <rect width="32" height="32" rx="6" fill="#0d1f1a"/>
+  <!-- Zielone "góry" / wykres słupkowy -->
+  <polygon points="2,26 8,18 12,22 18,10 22,16 26,8 30,12 30,26" fill="#2bff00" opacity="0.25"/>
+  <polyline points="2,26 8,18 12,22 18,10 22,16 26,8" fill="none" stroke="#2bff00" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Biała strzałka trendu w górę -->
+  <line x1="20" y1="18" x2="29" y2="6" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <polyline points="23,6 29,6 29,12" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
