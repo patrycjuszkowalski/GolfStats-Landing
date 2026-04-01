@@ -153,6 +153,7 @@ const FEATURES: Feature[] = [
       <p className="text-slate-400 text-sm leading-relaxed mb-3">Trener <span className="text-accent font-medium">może przesłać ci wskazówki odnośnie treningu</span>, podesłać własny film instruktarzowy czy umówić się z Toba na indywidualną sesję treningową na polu golfowym lub Driving Range. Ty masz <span className="text-accent font-medium">możliwość przesłania Trenerowi swoich postępów i uwag</span> co do wprowdzanych zmian i realizowanego treningu.</p>
     </>,
     cta: 'Zaplanuj trening',
+    images: ['/Plan_Treningu.webp'],
   },
 ]
 
