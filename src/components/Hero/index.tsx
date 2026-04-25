@@ -155,10 +155,10 @@ export default function Hero() {
               </div>
               <div className="grid grid-cols-2 gap-2 md:gap-2.5">
                 {[
-                  { src: '/poprawa.webp', alt: en ? 'Score improvement' : 'Poprawa wyników' },
-                  { src: '/radosc.webp',  alt: en ? 'Joy of the game' : 'Radość z gry' },
-                  { src: '/dbanie.webp',  alt: en ? 'Health & fitness' : 'Dbanie o zdrowie' },
-                  { src: '/cele.webp',    alt: en ? 'Sports goals' : 'Cele sportowe' },
+                  { src: en ? '/poprawa-en.webp' : '/poprawa.webp', alt: en ? 'Score improvement' : 'Poprawa wyników' },
+                  { src: en ? '/radosc-en.webp'  : '/radosc.webp',  alt: en ? 'Joy of the game' : 'Radość z gry' },
+                  { src: en ? '/dbanie-en.webp'  : '/dbanie.webp',  alt: en ? 'Health & fitness' : 'Dbanie o zdrowie' },
+                  { src: en ? '/cele-en.webp'    : '/cele.webp',    alt: en ? 'Sports goals' : 'Cele sportowe' },
                 ].map(({ src, alt }) => (
                   <div key={src} className="aspect-[4/3] md:w-44 md:h-36 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
