@@ -60,7 +60,7 @@ export default function Cennik() {
           </div>
           <p className="text-slate-500 text-sm mb-6">{en ? 'Free, forever' : 'Bezpłatnie, na zawsze'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {en ? [
+            {(en ? [
               <><span className="text-accent font-bold">5 rounds</span> per month</>,
               <><span className="text-accent font-bold">Basic</span> statistics</>,
               'Mobile app',
@@ -68,7 +68,7 @@ export default function Cennik() {
               <>Zapis <span className="text-accent font-bold">5 rund</span> miesięcznie</>,
               <><span className="text-accent font-bold">Podstawowe</span> statystyki</>,
               'Aplikacja mobilna',
-            ].map((f, i) => (
+            ]).map((f, i) => (
               <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
                 <CheckIcon /> {f}
               </li>
@@ -101,7 +101,7 @@ export default function Cennik() {
           )}
           <p className="text-slate-400 text-sm mb-6">{en ? '14-day free trial' : '14 dni trialu za darmo'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {en ? [
+            {(en ? [
               <><span className="text-accent font-bold">15 rounds</span> per month</>,
               <><span className="text-accent font-bold">Detailed</span> statistics</>,
               'Mobile app',
@@ -115,7 +115,7 @@ export default function Cennik() {
               <>Połączenie z <span className="text-accent font-bold">jednym</span> Trenerem</>,
               <><span className="text-accent font-bold">Zapis głosowy</span> wyników rund AI</>,
               'System polecen Member get Member',
-            ].map((f, i) => (
+            ]).map((f, i) => (
               <li key={i} className="flex items-center gap-2 text-sm text-white">
                 <CheckIcon /> {f}
               </li>
@@ -145,7 +145,7 @@ export default function Cennik() {
           )}
           <p className="text-slate-500 text-sm mb-6">{en ? '14-day free trial' : '14 dni trialu za darmo'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {en ? [
+            {(en ? [
               <><span className="text-accent font-bold">Unlimited</span> round recording</>,
               <><span className="text-accent font-bold">Detailed</span> statistics</>,
               'Mobile app',
@@ -165,7 +165,7 @@ export default function Cennik() {
               <><span className="text-accent font-bold">Indywidualny</span> plan treningowy</>,
               <>Możliwość <span className="text-accent font-bold">eksportu danych</span> do pliku CSV</>,
               <>Dodawanie <span className="text-accent font-bold">pól golfowych</span> do Aplikacji</>,
-            ].map((f, i) => (
+            ]).map((f, i) => (
               <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
                 <CheckIcon /> {f}
               </li>
