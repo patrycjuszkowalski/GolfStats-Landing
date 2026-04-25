@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Logo from './Logo'
 import { APP_LOGIN, APP_REGISTER } from '../constants'
+import { useLanguage } from '../i18n'
 
 function MenuIcon() {
   return (
@@ -20,12 +21,20 @@ function CloseIcon() {
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { lang, setLang } = useLanguage()
+  const en = lang === 'en'
 
-  const navLinks = [
-    { label: 'O aplikacji', href: '#o-aplikacji' },
-    { label: 'Dla kogo',    href: '#dla-kogo' },
-    { label: 'Cennik',      href: '#cennik' },
-  ]
+  const navLinks = en
+    ? [
+        { label: 'About', href: '#o-aplikacji' },
+        { label: 'For whom', href: '#dla-kogo' },
+        { label: 'Pricing', href: '#cennik' },
+      ]
+    : [
+        { label: 'O aplikacji', href: '#o-aplikacji' },
+        { label: 'Dla kogo',    href: '#dla-kogo' },
+        { label: 'Cennik',      href: '#cennik' },
+      ]
 
   return (
     <header className="fixed top-0 w-full z-50 border-b border-white/10 bg-[#1d262d]/95 backdrop-blur-md">
@@ -47,21 +56,28 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={() => setLang(en ? 'pl' : 'en')}
+            className="px-3 py-1.5 text-xs font-bold rounded-lg border border-white/20 text-slate-300 hover:text-accent hover:border-accent/40 transition-colors tracking-widest"
+            aria-label="Switch language"
+          >
+            {en ? 'PL' : 'EN'}
+          </button>
           <a href={APP_LOGIN} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 text-sm font-bold text-white hover:text-accent transition-colors">
-            Logowanie
+            {en ? 'Log in' : 'Logowanie'}
           </a>
           <a
             href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className="px-6 py-2.5 text-sm font-black bg-accent text-dark rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(43,255,0,0.3)]"
           >
-            DOŁĄCZ TERAZ
+            {en ? 'JOIN NOW' : 'DOŁĄCZ TERAZ'}
           </a>
         </div>
 
         <button
           className="md:hidden p-2 text-slate-300 hover:text-accent transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+          aria-label={menuOpen ? (en ? 'Close menu' : 'Zamknij menu') : (en ? 'Open menu' : 'Otwórz menu')}
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -80,9 +96,17 @@ export default function Navbar() {
             </a>
           ))}
           <div className="pt-3 flex flex-col gap-2">
-            <a href={APP_LOGIN} target="_blank" rel="noopener noreferrer" className="py-2 text-center text-sm font-bold text-white">Logowanie</a>
+            <button
+              onClick={() => setLang(en ? 'pl' : 'en')}
+              className="py-2 text-center text-xs font-bold text-slate-400 hover:text-accent transition-colors tracking-widest border border-white/10 rounded-lg"
+            >
+              {en ? '🇵🇱 Polski' : '🇬🇧 English'}
+            </button>
+            <a href={APP_LOGIN} target="_blank" rel="noopener noreferrer" className="py-2 text-center text-sm font-bold text-white">
+              {en ? 'Log in' : 'Logowanie'}
+            </a>
             <a href={APP_REGISTER} target="_blank" rel="noopener noreferrer" className="py-2.5 text-center text-sm font-black bg-accent text-dark rounded-full">
-              DOŁĄCZ TERAZ
+              {en ? 'JOIN NOW' : 'DOŁĄCZ TERAZ'}
             </a>
           </div>
         </div>

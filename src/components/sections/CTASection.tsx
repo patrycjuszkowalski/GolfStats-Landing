@@ -1,13 +1,20 @@
+import { useLanguage } from '../../i18n'
+
 export default function CTASection() {
+  const { lang } = useLanguage()
+  const en = lang === 'en'
+
   return (
     <section className="py-10 md:py-24 px-6">
       <div className="max-w-5xl mx-auto bg-gradient-to-r from-primary to-[#1d262d] border border-white/10 rounded-[3rem] p-8 md:p-12 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,255,0,0.08),transparent)] pointer-events-none" />
         <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-          Gotowy na wielkie zmiany?
+          {en ? 'Ready for a big change?' : 'Gotowy na wielkie zmiany?'}
         </h2>
         <p className="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
-          Dołącz do golfistów, którzy już dzisiaj poprawiają swoją grę z GolfStats.
+          {en
+            ? 'Join the golfers who are already improving their game with GolfStats today.'
+            : 'Dołącz do golfistów, którzy już dzisiaj poprawiają swoją grę z GolfStats.'}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {/* App Store */}
@@ -21,7 +28,9 @@ export default function CTASection() {
                 <div className="text-base font-bold text-white leading-tight">App Store</div>
               </div>
             </a>
-            <span className="text-[11px] text-accent/70 font-medium tracking-wide">Aplikacja wkrótce</span>
+            <span className="text-[11px] text-accent/70 font-medium tracking-wide">
+              {en ? 'Coming soon' : 'Aplikacja wkrótce'}
+            </span>
           </div>
           {/* Google Play */}
           <div className="flex flex-col items-center gap-1.5">
@@ -37,7 +46,9 @@ export default function CTASection() {
                 <div className="text-base font-bold text-white leading-tight">Google Play</div>
               </div>
             </a>
-            <span className="text-[11px] text-accent/70 font-medium tracking-wide">Aplikacja wkrótce</span>
+            <span className="text-[11px] text-accent/70 font-medium tracking-wide">
+              {en ? 'Coming soon' : 'Aplikacja wkrótce'}
+            </span>
           </div>
         </div>
       </div>

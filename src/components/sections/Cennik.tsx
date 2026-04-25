@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { glass, APP_REGISTER } from '../../constants'
 import CheckIcon from '../CheckIcon'
+import { useLanguage } from '../../i18n'
 
 const PRICES = {
   start: { monthly: { promo: 19, standard: 29 }, annual: { promo: 199, standard: 299 } },
@@ -9,20 +10,23 @@ const PRICES = {
 
 export default function Cennik() {
   const [annual, setAnnual] = useState(false)
+  const { lang } = useLanguage()
+  const en = lang === 'en'
 
   const startP = annual ? PRICES.start.annual : PRICES.start.monthly
   const fullP  = annual ? PRICES.full.annual  : PRICES.full.monthly
-  const suffix = annual ? '/rok' : '/mies.'
+  const suffix = annual ? (en ? '/yr' : '/rok') : (en ? '/mo' : '/mies.')
 
   return (
     <section id="cennik" className="py-10 md:py-24 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-black text-white mb-4 tracking-tighter">
-          Wybierz swój plan treningowy
+          {en ? 'Choose your training plan' : 'Wybierz swój plan treningowy'}
         </h2>
-        <p className="text-slate-400 mb-8">Wybierz plan, który odpowiada Twoim potrzebom.</p>
+        <p className="text-slate-400 mb-8">
+          {en ? 'Pick the plan that fits your needs.' : 'Wybierz plan, który odpowiada Twoim potrzebom.'}
+        </p>
 
-        {/* Toggle miesięcznie / rocznie */}
         <div className="inline-flex rounded-xl border border-white/10 overflow-hidden">
           <button
             onClick={() => setAnnual(false)}
@@ -30,7 +34,7 @@ export default function Cennik() {
               !annual ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white'
             }`}
           >
-            Miesięcznie
+            {en ? 'Monthly' : 'Miesięcznie'}
           </button>
           <button
             onClick={() => setAnnual(true)}
@@ -38,9 +42,9 @@ export default function Cennik() {
               annual ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white'
             }`}
           >
-            Rocznie
+            {en ? 'Annually' : 'Rocznie'}
             <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">
-              Oszczędzasz
+              {en ? 'Save' : 'Oszczędzasz'}
             </span>
           </button>
         </div>
@@ -51,12 +55,16 @@ export default function Cennik() {
         <div className={`${glass} p-8 rounded-2xl flex flex-col`}>
           <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Free</span>
           <div className="flex items-baseline gap-1 mb-2">
-            <span className="text-4xl font-black text-white">0 zł</span>
-            <span className="text-slate-400">/mies.</span>
+            <span className="text-4xl font-black text-white">0 {en ? 'PLN' : 'zł'}</span>
+            <span className="text-slate-400">/mo</span>
           </div>
-          <p className="text-slate-500 text-sm mb-6">Bezpłatnie, na zawsze</p>
+          <p className="text-slate-500 text-sm mb-6">{en ? 'Free, forever' : 'Bezpłatnie, na zawsze'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {[
+            {en ? [
+              <><span className="text-accent font-bold">5 rounds</span> per month</>,
+              <><span className="text-accent font-bold">Basic</span> statistics</>,
+              'Mobile app',
+            ] : [
               <>Zapis <span className="text-accent font-bold">5 rund</span> miesięcznie</>,
               <><span className="text-accent font-bold">Podstawowe</span> statystyki</>,
               'Aplikacja mobilna',
@@ -70,30 +78,37 @@ export default function Cennik() {
             href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className={`w-full py-3 text-center ${glass} rounded-lg font-bold text-white hover:bg-white/10 transition-all`}
           >
-            Wybierz Free
+            {en ? 'Choose Free' : 'Wybierz Free'}
           </a>
         </div>
 
-        {/* Start — wyróżniony */}
+        {/* Start — featured */}
         <div className="bg-primary/40 border-2 border-accent p-8 rounded-2xl flex flex-col relative scale-105 shadow-2xl shadow-accent/10">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-dark text-[10px] font-black px-4 py-1 rounded-full uppercase whitespace-nowrap">
-            POLECANY WYBÓR
+            {en ? 'RECOMMENDED' : 'POLECANY WYBÓR'}
           </div>
           <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Start</span>
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-4xl font-black text-white">{startP.promo} zł</span>
+            <span className="text-4xl font-black text-white">{startP.promo} {en ? 'PLN' : 'zł'}</span>
             <span className="text-slate-400">{suffix}</span>
           </div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-500 line-through text-sm">{startP.standard} zł</span>
-            <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">Promocja</span>
+            <span className="text-slate-500 line-through text-sm">{startP.standard} {en ? 'PLN' : 'zł'}</span>
+            <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">{en ? 'Promo' : 'Promocja'}</span>
           </div>
           {annual && (
-            <p className="text-slate-400 text-xs mb-1">= {Math.round(startP.promo / 12)} zł/mies.</p>
+            <p className="text-slate-400 text-xs mb-1">= {Math.round(startP.promo / 12)} {en ? 'PLN/mo' : 'zł/mies.'}</p>
           )}
-          <p className="text-slate-400 text-sm mb-6">14 dni trialu za darmo</p>
+          <p className="text-slate-400 text-sm mb-6">{en ? '14-day free trial' : '14 dni trialu za darmo'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {[
+            {en ? [
+              <><span className="text-accent font-bold">15 rounds</span> per month</>,
+              <><span className="text-accent font-bold">Detailed</span> statistics</>,
+              'Mobile app',
+              <>Connect with <span className="text-accent font-bold">one</span> Coach</>,
+              <><span className="text-accent font-bold">AI voice</span> round entry</>,
+              'Member get Member referral system',
+            ] : [
               <>Zapis <span className="text-accent font-bold">15 rund</span> miesięcznie</>,
               <><span className="text-accent font-bold">Szczegółowe</span> statystyki</>,
               'Aplikacja mobilna',
@@ -110,7 +125,7 @@ export default function Cennik() {
             href={APP_REGISTER} target="_blank" rel="noopener noreferrer"
             className="w-full py-4 text-center bg-accent text-dark rounded-xl font-black hover:scale-[1.02] transition-all shadow-[0_10px_20px_rgba(43,255,0,0.2)]"
           >
-            Wybierz Start
+            {en ? 'Choose Start' : 'Wybierz Start'}
           </a>
         </div>
 
@@ -118,19 +133,29 @@ export default function Cennik() {
         <div className={`${glass} p-8 rounded-2xl flex flex-col`}>
           <span className="text-sm font-bold text-accent uppercase tracking-widest mb-2">Full</span>
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-4xl font-black text-white">{fullP.promo} zł</span>
+            <span className="text-4xl font-black text-white">{fullP.promo} {en ? 'PLN' : 'zł'}</span>
             <span className="text-slate-400">{suffix}</span>
           </div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-slate-500 line-through text-sm">{fullP.standard} zł</span>
-            <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">Promocja</span>
+            <span className="text-slate-500 line-through text-sm">{fullP.standard} {en ? 'PLN' : 'zł'}</span>
+            <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">{en ? 'Promo' : 'Promocja'}</span>
           </div>
           {annual && (
-            <p className="text-slate-400 text-xs mb-1">= {Math.round(fullP.promo / 12)} zł/mies.</p>
+            <p className="text-slate-400 text-xs mb-1">= {Math.round(fullP.promo / 12)} {en ? 'PLN/mo' : 'zł/mies.'}</p>
           )}
-          <p className="text-slate-500 text-sm mb-6">14 dni trialu za darmo</p>
+          <p className="text-slate-500 text-sm mb-6">{en ? '14-day free trial' : '14 dni trialu za darmo'}</p>
           <ul className="space-y-3 mb-8 flex-1">
-            {[
+            {en ? [
+              <><span className="text-accent font-bold">Unlimited</span> round recording</>,
+              <><span className="text-accent font-bold">Detailed</span> statistics</>,
+              'Mobile app',
+              <>Connect with <span className="text-accent font-bold">multiple</span> Coaches</>,
+              <><span className="text-accent font-bold">AI voice</span> round entry</>,
+              'Member get Member referral system',
+              <><span className="text-accent font-bold">Individual</span> training plan</>,
+              <>Export data to <span className="text-accent font-bold">CSV</span> file</>,
+              <>Add <span className="text-accent font-bold">golf courses</span> to the App</>,
+            ] : [
               <><span className="text-accent font-bold">Nielimitowany</span> zapis rund</>,
               <><span className="text-accent font-bold">Szczegółowe</span> statystyki</>,
               'Aplikacja mobilna',
@@ -150,7 +175,7 @@ export default function Cennik() {
             href={`${APP_REGISTER}?role=STUDENT`} target="_blank" rel="noopener noreferrer"
             className={`w-full py-3 text-center ${glass} rounded-lg font-bold text-white hover:bg-white/10 transition-all`}
           >
-            Wybierz Full
+            {en ? 'Choose Full' : 'Wybierz Full'}
           </a>
         </div>
       </div>

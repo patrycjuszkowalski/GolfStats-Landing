@@ -1,19 +1,17 @@
 import { useState, Fragment, type ReactNode } from 'react'
 import { glass } from '../../constants'
+import { useLanguage } from '../../i18n'
 
 function IconScore() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Scorecard */}
       <rect x="3" y="2" width="19" height="24" rx="2.5" fill="#2bff00" fillOpacity="0.12" stroke="#2bff00" strokeWidth="1.5" strokeOpacity="0.65"/>
       <line x1="7" y1="8"  x2="18" y2="8"  stroke="#2bff00" strokeWidth="1.1" strokeOpacity="0.45"/>
       <line x1="7" y1="12" x2="18" y2="12" stroke="#2bff00" strokeWidth="1.1" strokeOpacity="0.45"/>
       <line x1="7" y1="16" x2="13" y2="16" stroke="#2bff00" strokeWidth="1.1" strokeOpacity="0.45"/>
-      {/* Pencil */}
       <path d="M21 19 L30 10 L28 8 L19 17 Z" fill="#2bff00" fillOpacity="0.75"/>
       <path d="M19 17 L18 21 L22 20 Z" fill="#2bff00" fillOpacity="0.5"/>
       <line x1="28" y1="8" x2="30" y2="10" stroke="#2bff00" strokeWidth="1.5" strokeOpacity="0.9"/>
-      {/* Mic circle hint */}
       <circle cx="27" cy="28" r="4.5" fill="#2bff00" fillOpacity="0.15" stroke="#2bff00" strokeWidth="1" strokeOpacity="0.5"/>
       <path d="M25,26.5 Q25,24.5 27,24.5 Q29,24.5 29,26.5 L29,28 Q29,30 27,30 Q25,30 25,28 Z" fill="#2bff00" fillOpacity="0.7"/>
       <line x1="27" y1="30" x2="27" y2="32" stroke="#2bff00" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.7"/>
@@ -24,14 +22,11 @@ function IconScore() {
 function IconAnalysis() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Bars */}
       <rect x="3"  y="20" width="5" height="12" rx="1.5" fill="#2bff00" fillOpacity="0.35"/>
       <rect x="10" y="14" width="5" height="18" rx="1.5" fill="#2bff00" fillOpacity="0.55"/>
       <rect x="17" y="9"  width="5" height="23" rx="1.5" fill="#2bff00" fillOpacity="0.75"/>
       <rect x="24" y="4"  width="5" height="28" rx="1.5" fill="#2bff00" fillOpacity="0.95"/>
-      {/* Trend line */}
       <polyline points="5.5,19 12.5,13 19.5,8 26.5,3" stroke="#2bff00" strokeWidth="1.8" fill="none" strokeOpacity="0.7" strokeLinecap="round" strokeLinejoin="round"/>
-      {/* Dots on trend */}
       {([[5.5,19],[12.5,13],[19.5,8],[26.5,3]] as [number,number][]).map(([x,y]) => (
         <circle key={`${x}-${y}`} cx={x} cy={y} r="2" fill="#2bff00" fillOpacity="0.9"/>
       ))}
@@ -42,17 +37,13 @@ function IconAnalysis() {
 function IconCoach() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Large bubble (trainer) */}
       <rect x="1" y="2" width="22" height="16" rx="4" fill="#2bff00" fillOpacity="0.2" stroke="#2bff00" strokeWidth="1.5" strokeOpacity="0.7"/>
       <path d="M5,18 L3,23 L9,18 Z" fill="#2bff00" fillOpacity="0.4"/>
-      {/* Dots inside large bubble */}
       <circle cx="7"  cy="10" r="1.8" fill="#2bff00" fillOpacity="0.7"/>
       <circle cx="12" cy="10" r="1.8" fill="#2bff00" fillOpacity="0.7"/>
       <circle cx="17" cy="10" r="1.8" fill="#2bff00" fillOpacity="0.7"/>
-      {/* Small bubble (player) */}
       <rect x="12" y="19" width="20" height="13" rx="3.5" fill="#2bff00" fillOpacity="0.12" stroke="#2bff00" strokeWidth="1.2" strokeOpacity="0.5"/>
       <path d="M29,32 L31,34 L27,32 Z" fill="#2bff00" fillOpacity="0.3"/>
-      {/* Lines inside small bubble */}
       <line x1="16" y1="24" x2="28" y2="24" stroke="#2bff00" strokeWidth="1" strokeOpacity="0.4"/>
       <line x1="16" y1="28" x2="24" y2="28" stroke="#2bff00" strokeWidth="1" strokeOpacity="0.4"/>
     </svg>
@@ -62,21 +53,15 @@ function IconCoach() {
 function IconTraining() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Calendar body */}
       <rect x="2" y="5" width="26" height="24" rx="3" fill="#2bff00" fillOpacity="0.1" stroke="#2bff00" strokeWidth="1.5" strokeOpacity="0.6"/>
-      {/* Header bar */}
       <rect x="2" y="5" width="26" height="7" rx="3" fill="#2bff00" fillOpacity="0.2"/>
       <line x1="2" y1="12" x2="28" y2="12" stroke="#2bff00" strokeWidth="0.8" strokeOpacity="0.4"/>
-      {/* Binding rings */}
       <line x1="9"  y1="2" x2="9"  y2="8" stroke="#2bff00" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.8"/>
       <line x1="21" y1="2" x2="21" y2="8" stroke="#2bff00" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.8"/>
-      {/* Checkmarks in cells */}
       <path d="M7,17 L9,20 L13,15"  stroke="#2bff00" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.9"/>
       <path d="M17,17 L19,20 L23,15" stroke="#2bff00" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.9"/>
       <path d="M7,24 L9,27 L13,22"  stroke="#2bff00" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.9"/>
-      {/* Empty cell (future) */}
       <rect x="17" y="22" width="6" height="5" rx="1" fill="none" stroke="#2bff00" strokeWidth="1" strokeOpacity="0.3"/>
-      {/* Target hint */}
       <circle cx="30" cy="30" r="4" fill="#2bff00" fillOpacity="0.15" stroke="#2bff00" strokeWidth="1" strokeOpacity="0.5"/>
       <circle cx="30" cy="30" r="1.5" fill="#2bff00" fillOpacity="0.7"/>
     </svg>
@@ -95,7 +80,7 @@ type Feature = {
   imagesLeft?: boolean
 }
 
-const FEATURES: Feature[] = [
+const FEATURES_PL: Feature[] = [
   {
     Icon: IconScore,
     title: <>Łatwe Dodawanie<br/>Wyników Rund</>,
@@ -134,9 +119,9 @@ const FEATURES: Feature[] = [
     images: ['/Komunikacja.webp'],
     imagesLeft: true,
     body: <>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">Ile razy będąc na Drivingu czy na Chippingu nie wiedziałeś dlaczego oddawane strzały nie lądują tam gdzie powinny, dlaczego grasz slice czu pull?</p>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">Jak dobrze byłoby mieć koło siebie trenera, który spojrzy swoim fachowym okiem i skoryguje Twoje błedy.</p>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">Dzięki GolfStats <span className="text-accent font-medium">masz możliwość komunikowania się z Trenerem</span> na kilka sposobów. Możesz pisać z nim wiadomosci w uporzadkowanych wątkach tematycznych, możesz nagrać filmik jak uderzasz i otrzymasz od Trenera wskazówki co do Twojego swingu. <span className="text-accent font-medium">To wszystko w jednym miejscu, uporządkowane, z pełna histoią wysyłanych wiadomości.</span></p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Ile razy będąc na Drivingu czy na Chippingu nie wiedziałeś dlaczego oddawane strzały nie lądują tam gdzie powinny, dlaczego grasz slice czy pull?</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Jak dobrze byłoby mieć koło siebie trenera, który spojrzy swoim fachowym okiem i skoryguje Twoje błędy.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Dzięki GolfStats <span className="text-accent font-medium">masz możliwość komunikowania się z Trenerem</span> na kilka sposobów. Możesz pisać z nim wiadomości w uporządkowanych wątkach tematycznych, możesz nagrać filmik jak uderzasz i otrzymasz od Trenera wskazówki co do Twojego swingu. <span className="text-accent font-medium">To wszystko w jednym miejscu, uporządkowane, z pełną historią wysyłanych wiadomości.</span></p>
       <p className="text-slate-400 text-sm leading-relaxed mb-3">Ty i Twój Trener widzicie wysyłane wiadomości tekstowe czy wysyłane filmy w czasie rzeczywistym. <span className="text-accent font-medium">Masz stały kontakt z Trenerem</span> i natychmiastowy feedback odnośnie Twojej gry — wszystko bez wychodzenia z aplikacji.</p>
     </>,
     cta: 'Połącz się z trenerem',
@@ -148,17 +133,83 @@ const FEATURES: Feature[] = [
     headline: ['Trening tam, gdzie', 'ma największy sens'],
     subheadline: 'GolfStat - planowanie oparte na danych.',
     body: <>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">Ty wprowadzasz dane <i>(rozegrane rundy, wiadomości i fimiki)</i> a <span className="text-accent font-medium">Trener na bazie tych informacji wspólnie z Toba</span> planuje efektywny i skuteczny plan poprawy Twojej gry. Nie musisz być ekspertem w anlizie danych - zostaw to naszym Trenerom oni wiedzą jak analizowac Twoją grę i jak sprawić aby była skuteczniejsza.</p>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">TTrener widzi i analizuje Twoje dane, jest w stanie dostrzec <span className="text-accent font-medium">Twoje mocne oraz słabe strony</span>. Dzięki dostępowi do GolfStats może zaplanować sesje treningowe <span className="text-accent font-medium">precyzyjnie dopasowane do Twoich potrzeb i celów treningowych.</span></p>
-      <p className="text-slate-400 text-sm leading-relaxed mb-3">Trener <span className="text-accent font-medium">może przesłać ci wskazówki odnośnie treningu</span>, podesłać własny film instruktarzowy czy umówić się z Toba na indywidualną sesję treningową na polu golfowym lub Driving Range. Ty masz <span className="text-accent font-medium">możliwość przesłania Trenerowi swoich postępów i uwag</span> co do wprowdzanych zmian i realizowanego treningu.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Ty wprowadzasz dane <i>(rozegrane rundy, wiadomości i filmiki)</i> a <span className="text-accent font-medium">Trener na bazie tych informacji wspólnie z Tobą</span> planuje efektywny i skuteczny plan poprawy Twojej gry. Nie musisz być ekspertem w analizie danych — zostaw to naszym Trenerom, oni wiedzą jak analizować Twoją grę i jak sprawić, aby była skuteczniejsza.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Trener widzi i analizuje Twoje dane, jest w stanie dostrzec <span className="text-accent font-medium">Twoje mocne oraz słabe strony</span>. Dzięki dostępowi do GolfStats może zaplanować sesje treningowe <span className="text-accent font-medium">precyzyjnie dopasowane do Twoich potrzeb i celów treningowych.</span></p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Trener <span className="text-accent font-medium">może przesłać Ci wskazówki odnośnie treningu</span>, podesłać własny film instruktażowy czy umówić się z Tobą na indywidualną sesję treningową na polu golfowym lub Driving Range. Ty masz <span className="text-accent font-medium">możliwość przesłania Trenerowi swoich postępów i uwag</span> co do wprowadzanych zmian i realizowanego treningu.</p>
     </>,
     cta: 'Zaplanuj trening',
     images: ['/Plan_Treningu.webp'],
   },
 ]
 
+const FEATURES_EN: Feature[] = [
+  {
+    Icon: IconScore,
+    title: <>Easy Round<br/>Score Entry</>,
+    desc: <>Easily record data from your Tournament and Practice rounds played on courses. You can do it manually or <span className="text-accent font-medium">dictate your scores by voice</span> in the App. This data will be used to analyse your game and plan your further development.</>,
+    headline: ['No more tedious', 'score entry'],
+    subheadline: 'GolfStats takes care of it for you.',
+    body: <>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">None of us enjoy entering rounds. Even writing scores on a Scorecard can be a hassle — let alone in an app.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Without accurate and reliable data, however, you can't plan effective training that will actually improve your scores in future rounds.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">In GolfStats <span className="text-accent font-medium">you enter scores manually or dictate them by voice</span>. Our AI takes care of the rest — converting your words into full hole-by-hole statistics.</p>
+    </>,
+    cta: 'Try AI for free',
+    images: ['/Rundy_nagrywanie_mowy.webp', '/Rundy_3_telefony.webp'],
+  },
+  {
+    Icon: IconAnalysis,
+    title: <>Precise Analysis<br/>of Your Game</>,
+    desc: <>Statistics and progress analysis — especially <span className="text-accent font-medium">what has changed in your game</span> compared to previous rounds. FIR, GIR, Putts Gained, Up&amp;Down and Sand Saves for every round. <span className="text-accent font-medium">Full insight</span> into every hole, every round, and a comprehensive overview of your game.</>,
+    headline: ['Statistical data is the', 'foundation of planning'],
+    subheadline: 'GolfStats helps you prepare it',
+    images: ['/Analiza_gry_1.webp', '/Analiza_gry_2.webp'],
+    imagesLeft: true,
+    body: <>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Data, data, and more data — but what does it all mean? The sheer volume of information can be overwhelming.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">That's why <span className="text-accent font-medium">we've prepared the most important stats</span> for each player and made them available to Coaches. They will help you plan your training, showing which elements are <span className="text-accent font-medium">your strengths</span> and which <span className="text-accent font-medium">need to be addressed first</span>.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">GolfStats uses your entered data to generate all key statistics, tables and charts. Together with your Coach you'll be able to set and plan your golf development.</p>
+    </>,
+    cta: 'See statistics',
+  },
+  {
+    Icon: IconCoach,
+    title: <>Fast Communication<br/>Coach – Player</>,
+    desc: <>You can <span className="text-accent font-medium">communicate with your Coach directly in the App</span>. Your coach sees your messages, attached videos, and recorded rounds in real time. Stay in touch with your Coach and get game feedback — all in one place.</>,
+    headline: ['Your coach always', 'close to you'],
+    subheadline: 'GolfStats organises communication',
+    images: ['/Komunikacja.webp'],
+    imagesLeft: true,
+    body: <>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">How many times at the Driving Range or Chipping area did you wonder why your shots aren't landing where they should — why you're hitting a slice or a pull?</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Wouldn't it be great to have a coach right there who can take a professional look and correct your mistakes?</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">With GolfStats <span className="text-accent font-medium">you can communicate with your Coach</span> in several ways. Send messages in organised topic threads, record a video of your swing and receive feedback on your technique. <span className="text-accent font-medium">All in one place, organised, with a full message history.</span></p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">You and your Coach see all text messages and videos in real time. <span className="text-accent font-medium">You stay in constant contact with your Coach</span> and get instant game feedback — without ever leaving the app.</p>
+    </>,
+    cta: 'Connect with a coach',
+  },
+  {
+    Icon: IconTraining,
+    title: <>Game Correction<br/>Training Planning</>,
+    desc: 'Thanks to statistics and your Coach\'s access to your scores, you can together plan effective training. Broad statistical data allows you to focus training exactly where it will have the greatest impact on your game.',
+    headline: ['Training where', 'it makes the most sense'],
+    subheadline: 'GolfStats — data-driven planning.',
+    body: <>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">You enter the data <i>(rounds played, messages and videos)</i> and <span className="text-accent font-medium">your Coach uses that information together with you</span> to build an effective improvement plan. You don't need to be a data expert — leave that to our Coaches, who know how to analyse your game and make it more effective.</p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">The Coach sees and analyses your data, identifying <span className="text-accent font-medium">your strengths and weaknesses</span>. With access to GolfStats they can plan training sessions <span className="text-accent font-medium">precisely tailored to your needs and training goals.</span></p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-3">Your Coach <span className="text-accent font-medium">can send you training tips</span>, share an instructional video, or schedule an individual session on the golf course or Driving Range. You can <span className="text-accent font-medium">send your Coach progress updates and feedback</span> on the changes you're making and the training you're completing.</p>
+    </>,
+    cta: 'Plan your training',
+    images: ['/Plan_Treningu.webp'],
+  },
+]
+
 export default function Features() {
   const [openIdx, setOpenIdx] = useState<number | null>(null)
+  const { lang } = useLanguage()
+  const en = lang === 'en'
+
+  const FEATURES = en ? FEATURES_EN : FEATURES_PL
 
   const handleToggle = (i: number) => {
     const willOpen = openIdx !== i
@@ -178,15 +229,14 @@ export default function Features() {
     <section id="o-aplikacji" className="py-10 md:py-24 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
         <h2 className="text-3xl font-black text-white uppercase tracking-tighter">
-          Funkcje Aplikacji
+          {en ? 'App Features' : 'Funkcje Aplikacji'}
         </h2>
         <h3 className="text-1xl font-black text-white mb-4 uppercase tracking-tighter">
-          Prostota i funkcjonalność
+          {en ? 'Simple and functional' : 'Prostota i funkcjonalność'}
         </h3>
         <div className="w-20 h-1.5 bg-accent" />
       </div>
 
-      {/* Siatka 4 kafelków + inline panele (mobile/tablet) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {FEATURES.map((f, i) => (
           <Fragment key={i}>
@@ -207,12 +257,11 @@ export default function Features() {
                   ${openIdx === i ? 'text-white' : 'text-accent hover:opacity-80'}`}
               >
                 {openIdx === i
-                  ? <><span>Zwiń</span><span className="text-xs">▲</span></>
-                  : <><span>Zobacz więcej</span><span className="text-xs text-accent">▼</span></>}
+                  ? <><span>{en ? 'Collapse' : 'Zwiń'}</span><span className="text-xs">▲</span></>
+                  : <><span>{en ? 'Learn more' : 'Zobacz więcej'}</span><span className="text-xs text-accent">▼</span></>}
               </button>
             </div>
 
-            {/* Panel inline — tylko mobile i tablet (poniżej lg) */}
             {openIdx === i && (
               <div
                 id={`inline-panel-${i}`}
@@ -236,7 +285,7 @@ export default function Features() {
                       {f.cta}
                     </button>
                     <button onClick={() => setOpenIdx(null)} className="text-slate-500 hover:text-white transition-colors text-sm">
-                      Zwiń ▲
+                      {en ? 'Collapse ▲' : 'Zwiń ▲'}
                     </button>
                   </div>
                 </div>
@@ -246,17 +295,13 @@ export default function Features() {
         ))}
       </div>
 
-      {/* ── Panel rozwijany pod siatką — tylko desktop (lg+) ── */}
       {active && (
         <div id="feature-panel" className="hidden lg:block mt-6 max-w-3xl bg-[#0d1f1a] border border-accent/25 rounded-3xl overflow-hidden">
 
           {active.images?.length ? (
-            /* ── Layout: góra 2 kolumny + dół scalony ── */
             <div className="grid grid-cols-[2fr_3fr]">
 
-              {/* Góra: obrazek lub tekst — kolejność zależna od imagesLeft */}
               {active.imagesLeft ? (
-                /* obrazki po lewej, tekst po prawej */
                 <>
                   <div className="flex items-center justify-center p-6">
                     <img
@@ -277,13 +322,12 @@ export default function Features() {
                         {active.cta}
                       </button>
                       <button onClick={() => setOpenIdx(null)} className="text-slate-500 hover:text-white transition-colors text-sm">
-                        Zwiń ▲
+                        {en ? 'Collapse ▲' : 'Zwiń ▲'}
                       </button>
                     </div>
                   </div>
                 </>
               ) : (
-                /* tekst po lewej, obrazek po prawej */
                 <>
                   <div className="flex flex-col justify-center px-8 py-10">
                     <h3 className="text-2xl md:text-3xl font-black leading-tight mb-3 text-white">
@@ -297,7 +341,7 @@ export default function Features() {
                         {active.cta}
                       </button>
                       <button onClick={() => setOpenIdx(null)} className="text-slate-500 hover:text-white transition-colors text-sm">
-                        Zwiń ▲
+                        {en ? 'Collapse ▲' : 'Zwiń ▲'}
                       </button>
                     </div>
                   </div>
@@ -311,7 +355,6 @@ export default function Features() {
                 </>
               )}
 
-              {/* Dół: pełna szerokość */}
               <div className="col-span-2 flex justify-center px-8 pb-8 bg-[#0d1f1a]">
                 <img
                   src={active.images[1]}
@@ -322,7 +365,6 @@ export default function Features() {
             </div>
 
           ) : (
-            /* ── Fallback: tylko tekst ── */
             <div className="px-8 py-10 max-w-2xl">
               <h3 className="text-2xl md:text-3xl font-black leading-tight mb-3 text-white">
                 {active.headline[0]}
@@ -335,7 +377,7 @@ export default function Features() {
                   {active.cta}
                 </button>
                 <button onClick={() => setOpenIdx(null)} className="text-slate-500 hover:text-white transition-colors text-sm">
-                  Zwiń ▲
+                  {en ? 'Collapse ▲' : 'Zwiń ▲'}
                 </button>
               </div>
             </div>

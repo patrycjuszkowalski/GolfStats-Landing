@@ -1,4 +1,5 @@
 import CyclingQuestions from './CyclingQuestions'
+import { useLanguage } from '../../i18n'
 
 const HERO_BG = '/hero-bg.webp'
 
@@ -23,7 +24,7 @@ function FlowArrow({ dir }: { dir: 'right' | 'left' }) {
   )
 }
 
-function ChartMockup() {
+function ChartMockup({ label }: { label: string }) {
   return (
     <svg viewBox="0 0 96 96" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
       <rect width="96" height="96" fill="#0d1f1a"/>
@@ -48,22 +49,16 @@ function ChartMockup() {
       ).map(([cx, cy]) => (
         <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="2.5" fill="white" opacity="0.85"/>
       ))}
-      <text x="48" y="11" textAnchor="middle" fill="#2bff00" fontSize="7" fontWeight="bold" opacity="0.9">STATYSTYKI</text>
+      <text x="48" y="11" textAnchor="middle" fill="#2bff00" fontSize="7" fontWeight="bold" opacity="0.9">{label}</text>
     </svg>
   )
 }
 
-function PlannerMockup() {
-  const tasks = [
-    { label: 'Analiza drivera', done: true },
-    { label: 'Putting 15m', done: true },
-    { label: 'Gra z rough', done: false },
-    { label: 'Video swing', done: false },
-  ]
+function PlannerMockup({ label, tasks, progress }: { label: string; tasks: { label: string; done: boolean }[]; progress: string }) {
   return (
     <svg viewBox="0 0 96 96" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
       <rect width="96" height="96" fill="#0d1f1a"/>
-      <text x="48" y="11" textAnchor="middle" fill="#2bff00" fontSize="7" fontWeight="bold" opacity="0.9">PLAN TRENINGU</text>
+      <text x="48" y="11" textAnchor="middle" fill="#2bff00" fontSize="7" fontWeight="bold" opacity="0.9">{label}</text>
       {tasks.map((t, i) => {
         const y = 32 + i * 16
         return (
@@ -87,12 +82,29 @@ function PlannerMockup() {
       })}
       <rect x="10" y="80" width="76" height="5" rx="2.5" fill="white" opacity="0.1"/>
       <rect x="10" y="80" width="38" height="5" rx="2.5" fill="#2bff00" opacity="0.7"/>
-      <text x="48" y="93" textAnchor="middle" fill="#2bff00" fontSize="6" opacity="0.7">50% ukończone</text>
+      <text x="48" y="93" textAnchor="middle" fill="#2bff00" fontSize="6" opacity="0.7">{progress}</text>
     </svg>
   )
 }
 
 export default function Hero() {
+  const { lang } = useLanguage()
+  const en = lang === 'en'
+
+  const plannerTasks = en
+    ? [
+        { label: 'Driver analysis', done: true },
+        { label: 'Putting 15m', done: true },
+        { label: 'Playing from rough', done: false },
+        { label: 'Video swing', done: false },
+      ]
+    : [
+        { label: 'Analiza drivera', done: true },
+        { label: 'Putting 15m', done: true },
+        { label: 'Gra z rough', done: false },
+        { label: 'Video swing', done: false },
+      ]
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -108,14 +120,22 @@ export default function Hero() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
 
             <div className="flex md:flex-col items-center gap-3 md:gap-2 md:w-40 flex-shrink-0 w-full bg-white/[0.04] md:bg-transparent rounded-2xl md:rounded-none px-3 py-2 md:p-0 border border-white/10 md:border-0">
-              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">ZAWODNIK</span>
+              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">
+                {en ? 'PLAYER' : 'ZAWODNIK'}
+              </span>
               <div className="w-14 h-14 md:w-32 md:h-32 rounded-2xl overflow-hidden ring-2 ring-accent/20 shadow-2xl flex-shrink-0">
-                <ChartMockup />
+                <ChartMockup label={en ? 'STATISTICS' : 'STATYSTYKI'} />
               </div>
               <div className="flex flex-col gap-0.5 flex-1 md:items-center">
-                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">ZAWODNIK</span>
-                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">WYNIKI RUND</span>
-                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">Dane z gry</span>
+                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">
+                  {en ? 'PLAYER' : 'ZAWODNIK'}
+                </span>
+                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">
+                  {en ? 'ROUND SCORES' : 'WYNIKI RUND'}
+                </span>
+                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">
+                  {en ? 'Game data' : 'Dane z gry'}
+                </span>
               </div>
             </div>
 
@@ -128,15 +148,17 @@ export default function Hero() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                   </span>
-                  <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent">Analityka Pro-Data</span>
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent">
+                    {en ? 'Pro-Data Analytics' : 'Analityka Pro-Data'}
+                  </span>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-2 md:gap-2.5">
                 {[
-                  { src: '/poprawa.webp', alt: 'Poprawa wyników' },
-                  { src: '/radosc.webp',  alt: 'Radość z gry' },
-                  { src: '/dbanie.webp',  alt: 'Dbanie o zdrowie' },
-                  { src: '/cele.webp',    alt: 'Cele sportowe' },
+                  { src: '/poprawa.webp', alt: en ? 'Score improvement' : 'Poprawa wyników' },
+                  { src: '/radosc.webp',  alt: en ? 'Joy of the game' : 'Radość z gry' },
+                  { src: '/dbanie.webp',  alt: en ? 'Health & fitness' : 'Dbanie o zdrowie' },
+                  { src: '/cele.webp',    alt: en ? 'Sports goals' : 'Cele sportowe' },
                 ].map(({ src, alt }) => (
                   <div key={src} className="aspect-[4/3] md:w-44 md:h-36 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                     <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
@@ -144,21 +166,35 @@ export default function Hero() {
                 ))}
               </div>
               <div className="flex justify-center mt-2">
-                <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent/80 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">CIĄGŁY ROZWÓJ</span>
+                <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-accent/80 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">
+                  {en ? 'CONTINUOUS GROWTH' : 'CIĄGŁY ROZWÓJ'}
+                </span>
               </div>
             </div>
 
             <FlowArrow dir="left" />
 
             <div className="flex md:flex-col items-center gap-3 md:gap-2 md:w-40 flex-shrink-0 w-full bg-white/[0.04] md:bg-transparent rounded-2xl md:rounded-none px-3 py-2 md:p-0 border border-white/10 md:border-0">
-              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">TWÓJ TRENER</span>
+              <span className="hidden md:inline-flex text-xs font-bold tracking-widest uppercase text-accent/80 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 whitespace-nowrap">
+                {en ? 'YOUR COACH' : 'TWÓJ TRENER'}
+              </span>
               <div className="w-14 h-14 md:w-32 md:h-32 rounded-xl overflow-hidden ring-1 ring-accent/20 shadow-2xl flex-shrink-0">
-                <PlannerMockup />
+                <PlannerMockup
+                  label={en ? 'TRAINING PLAN' : 'PLAN TRENINGU'}
+                  tasks={plannerTasks}
+                  progress={en ? '50% complete' : '50% ukończone'}
+                />
               </div>
               <div className="flex flex-col gap-0.5 flex-1 md:items-center">
-                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">TWÓJ TRENER</span>
-                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">ANALIZA GRY</span>
-                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">Plan Treningu</span>
+                <span className="md:hidden text-[9px] font-bold tracking-widest uppercase text-accent/70">
+                  {en ? 'YOUR COACH' : 'TWÓJ TRENER'}
+                </span>
+                <span className="text-base md:text-3xl font-black text-white tracking-tight uppercase leading-tight md:text-center">
+                  {en ? 'GAME ANALYSIS' : 'ANALIZA GRY'}
+                </span>
+                <span className="text-[9px] md:text-[11px] font-bold tracking-widest uppercase text-slate-400 whitespace-nowrap">
+                  {en ? 'Training Plan' : 'Plan Treningu'}
+                </span>
               </div>
             </div>
 
@@ -167,8 +203,12 @@ export default function Hero() {
 
         <CyclingQuestions />
         <p className="mb-10 max-w-2xl mx-auto text-center">
-          <span className="block text-white font-semibold text-xl md:text-2xl mb-1">Zmień sposób, w jaki trenujesz!</span>
-          <span className="block text-accent font-black tracking-widest uppercase text-2xl md:text-3xl">Sprawdź naszą aplikację</span>
+          <span className="block text-white font-semibold text-xl md:text-2xl mb-1">
+            {en ? 'Change the way you train!' : 'Zmień sposób, w jaki trenujesz!'}
+          </span>
+          <span className="block text-accent font-black tracking-widest uppercase text-2xl md:text-3xl">
+            {en ? 'Try our app' : 'Sprawdź naszą aplikację'}
+          </span>
         </p>
       </div>
     </section>

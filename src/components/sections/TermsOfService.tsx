@@ -1,6 +1,135 @@
 import ObfuscatedEmail from '../ObfuscatedEmail'
+import { useLanguage } from '../../i18n'
 
-export default function TermsOfService() {
+function TermsEN() {
+  return (
+    <div className="max-w-3xl mx-auto px-6 py-16 text-slate-300 space-y-8">
+      <h1 className="text-3xl font-black text-white">GolfStats Terms of Service</h1>
+      <p className="text-sm text-slate-500">Last updated: March 2026</p>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§1. Service Provider Details</h2>
+        <p>The service provider and operator of the Service is:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Name:</strong> EJDOS Patrycjusz Kowalski</li>
+          <li><strong>Address:</strong> ul. Parkowa 36, 83-330 Małkowo, Poland</li>
+          <li><strong>NIP:</strong> 5931343779</li>
+          <li><strong>REGON:</strong> 191245207</li>
+          <li><strong>E-mail:</strong> kontakt@golfstats.pl</li>
+          <li><strong>Phone:</strong> +48 513 050 797</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§2. Definitions</h2>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li><strong>Service</strong> – the web application available at app.golfstats.pl together with the website golfstats.pl.</li>
+          <li><strong>User</strong> – an individual using the Service after creating an Account.</li>
+          <li><strong>Player</strong> – a User using the round tracking and statistics features.</li>
+          <li><strong>Coach</strong> – a User using the player management and training planning features.</li>
+          <li><strong>Account</strong> – an individual password-protected User account.</li>
+          <li><strong>Plan</strong> – the selected access package for Service features (FREE, START or FULL).</li>
+          <li><strong>Digital content</strong> – access to Service features under a selected Premium Plan, provided electronically.</li>
+        </ul>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§3. Scope of Services and Offer</h2>
+        <p>GolfStats provides electronic services consisting of:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li>recording and analysing golf round results (shot statistics, handicap, comparisons),</li>
+          <li>communication between Player and Coach (messages, video, training plans),</li>
+          <li>voice round entry using AI technology,</li>
+          <li>storing game data and video material.</li>
+        </ul>
+        <p>A detailed description and pricing of available plans (FREE, START, FULL) is available at golfstats.pl in the Pricing section. The service is provided in Polish and prices are in PLN.</p>
+        <p><strong>Order fulfilment time:</strong> Access to a paid Premium Plan is activated immediately (within a maximum of 24 hours of payment being confirmed) and lasts for the paid billing period (monthly or annual).</p>
+        <p><strong>Technical protection measures for digital content:</strong> Access to the Service requires login to an individual password-protected account. Digital content is linked to the User's account and may not be transferred to other accounts or devices in an unauthorised manner.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§4. Registration and Account</h2>
+        <p>4.1. Using the Service requires creating an Account. Registration is free.</p>
+        <p>4.2. The User undertakes to provide accurate data and keep it up to date.</p>
+        <p>4.3. The User is responsible for keeping their password confidential and for all actions taken from their Account.</p>
+        <p>4.4. It is prohibited to create Accounts on behalf of other people without their consent or to create fictitious accounts.</p>
+        <p>4.5. One User may hold only one active Account.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§5. Plans and Payments</h2>
+        <p>5.1. The Service offers a Free Plan (FREE) with limited features and paid plans START and FULL with extended access.</p>
+        <p>5.2. Prices and scope of Plans are set out in the Pricing section at golfstats.pl. The Provider reserves the right to change pricing with 30 days' notice.</p>
+        <p>5.3. Payments for Premium Plans are made in advance for the selected billing period via payment operator <strong>PayU S.A.</strong> based in Poznań (ul. Grunwaldzka 186, 60-166 Poznań), a national payment institution supervised by the KNF. By clicking "Order and pay" the User places an order with an obligation to pay.</p>
+        <p>5.4. VAT invoices are issued on request after the User provides billing details to <ObfuscatedEmail />.</p>
+        <p>5.5. For monthly subscriptions access renews every 30 days, for annual every 365 days, unless the User cancels before the renewal date.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§6. Withdrawal and Refunds</h2>
+        <p>6.1. A User who is a consumer has the right to withdraw from the contract within <strong>14 days</strong> of its conclusion without giving a reason.</p>
+        <p>6.2. <strong>Exception for digital content:</strong> The right of withdrawal expires if the User has given explicit consent to begin delivery of the digital service before the withdrawal period expires and has acknowledged that they thereby lose the right of withdrawal (Art. 38(13) of the Consumer Rights Act).</p>
+        <p>6.3. A withdrawal statement must be sent electronically to <ObfuscatedEmail /> or by post to: EJDOS Patrycjusz Kowalski, ul. Parkowa 36, 83-330 Małkowo, Poland.</p>
+        <p>6.4. In the event of a valid withdrawal the Provider refunds the payment within 14 days of receiving the statement, to the bank account from which payment was made.</p>
+        <p>6.5. As the Service provides only digital content (electronic services), return of a physical product does not apply. The User does not bear any return costs.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§7. User Rights and Obligations</h2>
+        <p>7.1. The User undertakes to use the Service in accordance with the law, good practices, and these Terms.</p>
+        <p>7.2. The following are prohibited:</p>
+        <ul className="list-disc list-inside space-y-1 pl-2">
+          <li>publishing unlawful, offensive or third-party rights-infringing content,</li>
+          <li>uploading files containing malware,</li>
+          <li>actions disrupting the Service (DDoS attacks, scraping, automated bots),</li>
+          <li>sharing Premium Account access with third parties.</li>
+        </ul>
+        <p>7.3. The User retains copyright over uploaded material (video, recordings) and grants the Provider a royalty-free licence to store and display them solely for the purpose of providing the service.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§8. Order Restrictions</h2>
+        <p>8.1. The Service is available only to adults (18+) residing in the Republic of Poland.</p>
+        <p>8.2. Payments are processed only in PLN.</p>
+        <p>8.3. The Provider reserves the right to refuse services in the event of a breach of these Terms or applicable law.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§9. Liability and Warranty</h2>
+        <p>9.1. The Service is a support tool and does not replace advice from a qualified golf coach or physician. The Provider is not liable for training decisions made on the basis of Service data.</p>
+        <p>9.2. The Provider undertakes to provide services free of defects. If defects are found, the User may submit a complaint under §10.</p>
+        <p>9.3. The Provider endeavours to ensure Service continuity but does not guarantee 24/7 availability and reserves the right to scheduled maintenance with advance notice.</p>
+        <p>9.4. The Provider's liability to non-consumer Users is limited to fees paid in the preceding 3 months.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§10. Complaints</h2>
+        <p>10.1. Complaints about services should be submitted electronically to <ObfuscatedEmail /> or by post to: EJDOS Patrycjusz Kowalski, ul. Parkowa 36, 83-330 Małkowo, Poland.</p>
+        <p>10.2. A complaint should include: User data (email), description of the problem, and expected resolution.</p>
+        <p>10.3. The Provider handles complaints within <strong>14 business days</strong> of receipt and notifies the User of the outcome electronically.</p>
+        <p>10.4. Possible resolutions: refund, subscription extension, or another agreed method.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§11. Termination and Account Deletion</h2>
+        <p>11.1. The User may delete their Account at any time from the app settings or by sending a request to <ObfuscatedEmail />. Account deletion is irreversible.</p>
+        <p>11.2. The Provider may block or delete an Account in the event of a breach of these Terms, after first requesting the breach to cease (unless the breach is severe).</p>
+        <p>11.3. In the event of termination during a billing period, the User is not entitled to a proportional refund unless consumer protection law provides otherwise.</p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold text-white">§12. Final Provisions</h2>
+        <p>12.1. These Terms are governed by Polish law. Matters not covered herein are subject to the Civil Code and the Act on Electronic Services.</p>
+        <p>12.2. Disputes between the Provider and non-consumer Users are resolved by the court having jurisdiction over the Provider's registered office.</p>
+        <p>12.3. Consumers may use out-of-court dispute resolution methods, including the ODR platform at ec.europa.eu/consumers/odr.</p>
+        <p>12.4. The Provider reserves the right to amend these Terms. Users will be notified of changes by email or in-app notice at least 14 days in advance. Continued use of the Service after changes take effect constitutes acceptance.</p>
+        <p>12.5. Contact: <ObfuscatedEmail /> | tel. +48 513 050 797</p>
+      </section>
+    </div>
+  )
+}
+
+function TermsPL() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-16 text-slate-300 space-y-8">
       <h1 className="text-3xl font-black text-white">Regulamin serwisu GolfStats</h1>
@@ -126,4 +255,9 @@ export default function TermsOfService() {
       </section>
     </div>
   )
+}
+
+export default function TermsOfService() {
+  const { lang } = useLanguage()
+  return lang === 'en' ? <TermsEN /> : <TermsPL />
 }

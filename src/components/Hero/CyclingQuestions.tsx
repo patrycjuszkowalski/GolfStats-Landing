@@ -1,26 +1,42 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../../i18n'
 
-const QUESTIONS = [
+const QUESTIONS_PL = [
   'Kochasz grać w golfa?',
   'Cieszysz się każdą chwilą spędzoną na polu?',
   'Zależy Ci na poprawie wyników?',
   'Chcesz grać nie martwiąc się o kontuzje?',
 ]
 
+const QUESTIONS_EN = [
+  'Do you love playing golf?',
+  'Do you enjoy every moment on the course?',
+  'Do you want to improve your game?',
+  'Do you want to play without worrying about injuries?',
+]
+
 export default function CyclingQuestions() {
   const [idx, setIdx] = useState(0)
   const [visible, setVisible] = useState(true)
+  const { lang } = useLanguage()
+
+  const questions = lang === 'en' ? QUESTIONS_EN : QUESTIONS_PL
+
+  useEffect(() => {
+    setIdx(0)
+    setVisible(true)
+  }, [lang])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false)
       setTimeout(() => {
-        setIdx(i => (i + 1) % QUESTIONS.length)
+        setIdx(i => (i + 1) % questions.length)
         setVisible(true)
       }, 400)
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [questions.length])
 
   return (
     <div className="mb-8 flex flex-col items-center gap-4">
@@ -33,15 +49,15 @@ export default function CyclingQuestions() {
             transition: 'opacity 0.4s ease, transform 0.4s ease',
           }}
         >
-          {QUESTIONS[idx]}
+          {questions[idx]}
         </p>
       </div>
       <div className="flex gap-2">
-        {QUESTIONS.map((_, i) => (
+        {questions.map((_, i) => (
           <button
             key={i}
             onClick={() => { setVisible(false); setTimeout(() => { setIdx(i); setVisible(true) }, 400) }}
-            aria-label={`Pytanie ${i + 1}`}
+            aria-label={`Question ${i + 1}`}
             className="flex items-center justify-center"
             style={{ minWidth: 28, minHeight: 28, background: 'transparent' }}
           >

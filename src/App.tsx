@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
+import { LanguageProvider } from './i18n'
 
 const Features     = lazy(() => import('./components/sections/Features'))
 const DlaKogo      = lazy(() => import('./components/sections/DlaKogo'))
@@ -12,14 +13,15 @@ const PrivacyPolicy   = lazy(() => import('./components/sections/PrivacyPolicy')
 const TermsOfService  = lazy(() => import('./components/sections/TermsOfService'))
 const ContactPage     = lazy(() => import('./components/sections/ContactPage'))
 
-export default function App() {
+function AppInner() {
   const [page, setPage] = useState<'home' | 'privacy' | 'terms' | 'contact'>('home')
 
   useEffect(() => {
     const onHash = () => {
-      if (window.location.hash === '#/polityka-prywatnosci') setPage('privacy')
-      else if (window.location.hash === '#/regulamin') setPage('terms')
-      else if (window.location.hash === '#/kontakt') setPage('contact')
+      const h = window.location.hash
+      if (h === '#/polityka-prywatnosci' || h === '#/privacy-policy') setPage('privacy')
+      else if (h === '#/regulamin' || h === '#/terms-of-service') setPage('terms')
+      else if (h === '#/kontakt' || h === '#/contact') setPage('contact')
       else setPage('home')
     }
     onHash()
@@ -48,5 +50,13 @@ export default function App() {
       <Suspense fallback={<div />}><Cennik /></Suspense>
       <Suspense fallback={<div />}><CTASection /></Suspense>
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppInner />
+    </LanguageProvider>
   )
 }
